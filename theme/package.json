@@ -1,0 +1,13 @@
+{
+  "name": "slidev-theme-evil",
+  "version": "0.0.0",
+  "private": true,
+  "keywords": ["slidev-theme"],
+  "slidev": {
+    "defaults": {
+      "colorSchema": "dark",
+      "aspectRatio": "16/10",
+      "transition": "fade"
+    }
+  }
+}

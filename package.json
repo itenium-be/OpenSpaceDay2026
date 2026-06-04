@@ -1,0 +1,15 @@
+{
+  "name": "open-space-day",
+  "private": true,
+  "scripts": {
+    "dev": "slidev decks/more-ai-sessions/slides.md --open",
+    "build": "slidev build decks/more-ai-sessions/slides.md",
+    "export": "slidev export decks/more-ai-sessions/slides.md --format pdf"
+  },
+  "dependencies": {
+    "@slidev/cli": "^51.0.0"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.49.1"
+  }
+}
