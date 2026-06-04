@@ -4,13 +4,11 @@ layout: intro
 
 ## What's an open space?
 
-<v-clicks>
-
-- **You build the agenda.** No fixed program — we fill the board together, now.
-- **Sessions run in parallel.** Pick what pulls you; walk between rooms.
-- **A topic = a question + whoever cares.** The cards ahead are just starters.
-
-</v-clicks>
+<div class="os-notes">
+  <div class="os-note" v-click><strong>You build the agenda.</strong> No fixed program — we fill the board together, now.</div>
+  <div class="os-note" v-click><strong>Sessions run in parallel.</strong> Pick what pulls you; walk between rooms.</div>
+  <div class="os-note" v-click><strong>A topic <br>= a question <br>+ whoever cares.</strong> The cards ahead are just starters.</div>
+</div>
 
 ---
 layout: intro
@@ -18,14 +16,9 @@ layout: intro
 
 ## Two rules, that's it
 
-<div class="os-rules">
-
-### 🦶 The Law of Two Feet
-If you're not learning or contributing, use your two feet — go somewhere you are.
-
-### 🙌 Whoever shows up are the right people
-However many turn up to a session, they're exactly who it needed.
-
+<div class="os-notes os-notes--rules">
+  <div class="os-note" v-click><span class="os-note__emoji">🦶</span><strong>The Law of Two Feet</strong> If you're not learning or contributing, use your two feet — go somewhere you are.</div>
+  <div class="os-note" v-click><span class="os-note__emoji">🙌</span><strong>Whoever shows up are the right people</strong> However many turn up to a session, they're exactly who it needed.</div>
 </div>
 
 ---

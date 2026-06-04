@@ -50,3 +50,59 @@
   background-size: cover;
   background-position: center;
 }
+
+/* "What's an open space?" — the three points pinned as sticky notes on the wall */
+.skin-sticky .os-notes {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: flex-start;
+}
+.skin-sticky .os-note {
+  position: relative;
+  flex: 1;
+  padding: 1.7rem 1.4rem 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  color: #2a2a2a;
+  border-radius: 2px;
+  box-shadow: 2px 6px 12px rgba(0,0,0,.2);
+  /* reveal: settle into place rather than just fading in */
+  transition: opacity .35s ease, transform .35s ease;
+}
+.skin-sticky .os-note strong {
+  display: block;
+  margin-bottom: .5rem;
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+/* alternating tilt, height offset and note colour — a hand-pinned wall, not a row of boxes */
+.skin-sticky .os-note:nth-child(1) { transform: rotate(-3deg);   background: #ffe08a; }
+.skin-sticky .os-note:nth-child(2) { transform: rotate(2deg);    background: #ffadc6; margin-top: 1.6rem; }
+.skin-sticky .os-note:nth-child(3) { transform: rotate(-1.5deg); background: #bfe3a8; margin-top: .4rem; }
+/* tape strip across the top of each note */
+.skin-sticky .os-note::before {
+  content: '';
+  position: absolute;
+  top: -.55rem; left: 50%;
+  width: 3.6rem; height: 1.2rem;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(255,255,255,.5);
+  box-shadow: 0 1px 2px rgba(0,0,0,.12);
+}
+/* before a note is clicked in, it sits un-pinned: lower, flat, faded */
+.skin-sticky .os-note.slidev-vclick-hidden {
+  opacity: 0;
+  transform: translateY(1.5rem) rotate(0deg);
+}
+
+/* "Two rules" — two bigger notes, the emoji stamped above each rule */
+.skin-sticky .os-notes--rules { gap: 2.6rem; margin-top: 2.4rem; }
+.skin-sticky .os-notes--rules .os-note { padding: 2rem 1.8rem; font-size: 1.3rem; }
+.skin-sticky .os-note__emoji {
+  display: block;
+  margin-bottom: .4rem;
+  font-size: 2.8rem;
+  line-height: 1;
+}
