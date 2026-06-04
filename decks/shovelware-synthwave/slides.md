@@ -65,9 +65,10 @@ heading: The heist — Modernization
 <div class="fleet__card"><h3>Integrate</h3><p>off-the-shelf <strong>self-hosted</strong> components — <strong>Gotenberg</strong> for PDF</p></div>
 <div class="fleet__card"><h3 style="margin-bottom: 5px">Hygiene</h3><p><code>master</code> → <code>main</code> · <strong>LF vs CRLF</strong></p></div>
 <div class="fleet__card"><h3>Guardrails</h3><p><strong>CI hardening</strong> · git hooks · <strong>Claude hooks</strong></p></div>
+<div class="fleet__card"><h3>.NET</h3><p><code>.slnx</code> · <code>Directory.*.props</code> · <strong>.NET 10</strong> · Roslynator</p></div>
 </div>
 
-<div class="sw-subtle">Headline burst: <span class="sw-cyan">18 Feb 2026</span>. 285 commits.</div>
+<div class="sw-subtle" style="margin-top:5px">Headline burst: <span class="sw-cyan">18 Feb 2026</span>. 285 commits · ~27 repos.</div>
 
 ---
 layout: default
