@@ -9,8 +9,7 @@
     "dossier": "slidev decks/bookclub-dossier/slides.md --open",
     "open-space:sticky": "slidev decks/open-space/sticky.md --open",
     "open-space:arcade": "slidev decks/open-space/arcade.md --open",
-    "open-space:doodle": "slidev decks/open-space/doodle.md --open",
-    "build-all": "bun run scripts/build-all.mjs"
+    "open-space:doodle": "slidev decks/open-space/doodle.md --open"
   },
   "dependencies": {
     "@slidev/cli": "^51.0.0",

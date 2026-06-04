@@ -57,7 +57,7 @@ title: Cross-role friction
   <div class="os-card"><div class="os-card__title">The requirements telephone game: analyst → PO → dev — where do they die?</div><div class="os-card__chips"><span class="os-chip">analysts</span><span class="os-chip">PO</span><span class="os-chip">devs</span></div></div>
   <div class="os-card"><div class="os-card__title">Why do devs and testers fight about bugs?</div><div class="os-card__chips"><span class="os-chip">devs</span><span class="os-chip">testers</span></div></div>
   <div class="os-card"><div class="os-card__title">Handoffs: the most expensive thing we do?</div><div class="os-card__chips"><span class="os-chip">all</span></div></div>
-  <div class="os-card"><div class="os-card__title">Three Amigos — does it work, or just more meetings?</div><div class="os-card__chips"><span class="os-chip">analysts</span><span class="os-chip">devs</span><span class="os-chip">testers</span></div></div>
+  <div class="os-card"><div class="os-card__title">Three Amigos — does it actually work for us, or just more meetings?</div><div class="os-card__chips"><span class="os-chip">analysts</span><span class="os-chip">devs</span><span class="os-chip">testers</span></div></div>
   <div class="os-card"><div class="os-card__title">"Who owns quality?" Everyone says the team. Nobody means it.</div><div class="os-card__chips"><span class="os-chip">all</span></div></div>
 </div>
 
