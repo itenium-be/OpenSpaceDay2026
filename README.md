@@ -15,10 +15,13 @@ Presenter mode: <http://localhost:3030/presenter>
 
 ## Decks
 
-| Deck             | Command              | Theme               |
-|------------------|----------------------|---------------------|
-| More AI Sessions | `bun run dev`        | `theme/` (evil AI)  |
-| Shovelware       | `bun run shovelware` | `themes/synthwave`  |
+| Deck                  | Command                                                  | Theme                      |
+|-----------------------|----------------------------------------------------------|----------------------------|
+| More AI Sessions      | `bun run dev`                                            | `theme/` (evil AI)         |
+| Shovelware            | `bun run shovelware`                                     | `themes/synthwave`         |
+| Open Space (3 skins)  | `bun run open-space:sticky` (or `:arcade` / `:doodle`)  | `themes/openspace` (light) |
+
+Three skins of the same content — run each, pick one, delete the other two entry files + skins.
 
 **Shovelware** is the lightning talk *"Where Is All the Shovelware?"* — synthwave
 neon-grid theme. Story/facts brief: [docs/shovelware-brief.md](docs/shovelware-brief.md).
