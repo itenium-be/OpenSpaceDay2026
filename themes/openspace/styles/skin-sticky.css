@@ -32,3 +32,21 @@
   color: color-mix(in srgb, var(--os-cat) 80%, #222);
 }
 .skin-sticky .os-grid-head h2 { transform: rotate(-1.5deg); }
+
+/* --- Midjourney art backdrops (served from decks/open-space/public/) --- */
+/* cover: sticky-note wall photo; left-heavy cork scrim keeps the title legible */
+.skin-sticky.os-cover {
+  background-image:
+    linear-gradient(100deg, rgba(243,234,214,.94) 0%, rgba(243,234,214,.85) 38%, rgba(243,234,214,.28) 100%),
+    url('/cover.png');
+  background-size: cover;
+  background-position: center;
+}
+/* text-only slides get the watercolour frame; its clean centre keeps copy readable.
+   grids deliberately stay on plain cork so the 27 cards don't fight a backdrop. */
+.skin-sticky.os-intro,
+.skin-sticky.os-end {
+  background-image: linear-gradient(rgba(252,251,247,.55), rgba(252,251,247,.55)), url('/motifs.png');
+  background-size: cover;
+  background-position: center;
+}
