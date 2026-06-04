@@ -99,7 +99,7 @@ heading: Goodbye Windows & PowerShell
 <v-clicks>
 
 <div class="exitwin__row"><span class="pr">&gt;</span> Claude loves Bash</div>
-<div class="exitwin__row"><span class="pr">&gt;</span> So the whole workflow moved to <strong>WSL / bash</strong></div>
+<div class="exitwin__row"><span class="pr">&gt;</span> So my workflow moved to <strong>WSL / bash</strong></div>
 <div class="exitwin__row"><span class="pr">&gt;</span> WSL-vs-Windows friction finally tipped it.<span class="sub">Junctions · Dropbox · CRLF · PowerShell — daily papercuts</span></div>
 <div class="exitwin__row exitwin__row--final"><span class="pr">&gt;</span> 2026 is the year I'm moving to <strong class="sw-pink">Debian</strong><span class="blink">█</span></div>
 

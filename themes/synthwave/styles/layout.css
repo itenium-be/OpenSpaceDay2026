@@ -334,15 +334,18 @@
   align-items: center;
   gap: .8rem;
   margin-top: 1.5rem;
-  padding: .75rem 1.15rem;
+  padding: .8rem 1.2rem;
   border: 1px solid rgba(255, 46, 136, .55);
   border-left: 4px solid var(--sw-pink);
   border-radius: 9px;
-  background: linear-gradient(90deg, rgba(255, 46, 136, .18), rgba(255, 46, 136, .04));
+  /* solid dark base so the moving grid behind doesn't muddy the text */
+  background: #160730;
   box-shadow: 0 0 26px rgba(255, 46, 136, .3);
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.22rem;
+  font-weight: 500;
 }
+.irony strong { font-weight: 700; }
 .irony__tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: .74rem;
