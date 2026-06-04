@@ -15,12 +15,19 @@ Presenter mode: <http://localhost:3030/presenter>
 
 ## Decks
 
-| Deck             | Command                                          | Source          |
-|------------------|--------------------------------------------------|-----------------|
-| More AI Sessions | `bunx slidev decks/more-ai-sessions/slides.md`   | `OTHER_TALK.md` |
+| Deck                   | Command                        | Theme              |
+|------------------------|--------------------------------|--------------------|
+| More AI Sessions       | `bun run dev`                  | `theme/` (evil AI) |
+| Shovelware · CD-ROM    | `bun run shovelware:cdrom`     | `themes/cdrom`     |
+| Shovelware · Steam     | `bun run shovelware:steam`     | `themes/steam`     |
+| Shovelware · Synthwave | `bun run shovelware:synthwave` | `themes/synthwave` |
 
-More decks drop under `decks/<name>/slides.md` and share the same theme — point
-`slidev` at the deck's `slides.md` (or add a script to `package.json`).
+The three **Shovelware** decks are the same lightning talk — *"Where Is All the
+Shovelware?"* — rendered in three candidate themes, so you can compare live and
+keep the winner. Story/facts brief: [docs/shovelware-brief.md](docs/shovelware-brief.md).
+
+More decks drop under `decks/<name>/slides.md` — point `slidev` at the deck's
+`slides.md` (or add a script to `package.json`).
 
 ## Theme
 

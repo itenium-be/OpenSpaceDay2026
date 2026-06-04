@@ -33,12 +33,16 @@ Already deployed:
 - MCP + Skills · MCP Servers
 - Predicting Mental Fatigue · Math Behind the Curtain
 
+<v-click>
+
 ## Gaps detected
 
 - No way to **prove** the AI works → evals
 - No **retrieval** → RAG / text-to-SQL
 - No **model or tool comparison** → bake-off / cage match
 - The whole track is text-in, text-out → **diffusion**
+
+</v-click>
 
 ---
 layout: section
