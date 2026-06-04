@@ -53,19 +53,22 @@ sub: "…you want shovelware? Here's my pile."
 ---
 layout: default
 num: "01"
-heading: The heist — confac modernization
+heading: The heist — Modernization
 ---
 
-itenium's invoicing app. A legacy React/Node stack, dragged into 2026. This is the **opposite** of slop — it deletes entropy.
-
-<div class="fleet" style="grid-template-columns:repeat(2,1fr);margin-top:.6rem">
-<div class="fleet__card"><h3>Build</h3><p>create-react-app → <strong>Vite</strong> · npm → <strong>Bun</strong> ("bun all the way")</p></div>
-<div class="fleet__card"><h3>Tests</h3><p>Jest → <strong>Vitest</strong> · killed <strong>MomentJS</strong></p></div>
-<div class="fleet__card"><h3>Types</h3><p>TS <strong>strict</strong> · no-explicit-any · Node 22 · Knip dead-code</p></div>
-<div class="fleet__card"><h3>Hygiene</h3><p><code>master</code> → <code>main</code> · LF EOL · purged 5 dead deps</p></div>
+<div class="fleet" style="margin-top:.6rem">
+<div class="fleet__card"><h3>Build</h3><p>create-react-app → <strong>Vite</strong> · npm → <strong>Bun</strong></p></div>
+<div class="fleet__card"><h3>Tests</h3><p>Jest → <strong>Vitest</strong>, green in CI</p></div>
+<div class="fleet__card"><h3>Time</h3><p>killed <strong>MomentJS</strong></p></div>
+<div class="fleet__card"><h3>Types</h3><p>TS <strong>strict</strong> · no-<code>any</code> · Node 22</p></div>
+<div class="fleet__card"><h3>Dead code</h3><p><strong>Knip</strong> · dropped superagent · numeral · bson · bodyparser</p></div>
+<div class="fleet__card"><h3>Mail</h3><p>SendGrid → <strong>Nodemailer</strong> (Gmail)</p></div>
+<div class="fleet__card"><h3>PDF</h3><p>custom merge → <strong>Gotenberg</strong> service</p></div>
+<div class="fleet__card"><h3>Seed data</h3><p>Faker → <strong>curated</strong> · KBO-verified VATs</p></div>
+<div class="fleet__card"><h3 style="margin-bottom: 5px">Hygiene</h3><p><code>master</code> → <code>main</code> · <strong>LF vs CRLF</strong></p></div>
 </div>
 
-<div class="sw-subtle">Headline burst: <span class="sw-cyan">22–23 Feb 2026</span>. All real commits.</div>
+<div class="sw-subtle">Headline burst: <span class="sw-cyan">18 Feb 2026</span>. 285 commits.</div>
 
 ---
 layout: default

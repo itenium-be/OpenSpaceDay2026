@@ -17,8 +17,14 @@
   color: var(--sw-text);
   font-family: 'Rajdhani', 'Segoe UI', sans-serif;
   font-size: 1.05rem;
-  background: linear-gradient(180deg, #0b0420 0%, #1a0938 55%, #2a0a52 100%);
+  /* transparent so the global-top grid floor stays visible on every slide;
+     the indigo gradient lives on the backdrop (.sw-fx) behind the grid */
+  background: transparent;
   padding: 2.4rem 3rem;
+  /* sit the whole layer above the global-top backdrop (sw-fx, z-index:0)
+     without clobbering individual children's positioning */
+  position: relative;
+  z-index: 1;
 }
 
 /* headings */
@@ -140,6 +146,7 @@
   justify-content: center;
   text-align: center;
   background: transparent;
+  height: 100%; /* fill the slide so the hero centers and the boot line pins to the bottom */
 }
 .sw-cover h1 {
   font-family: 'Monoton', cursive;

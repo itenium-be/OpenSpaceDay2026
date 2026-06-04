@@ -1,7 +1,12 @@
-<!-- Pure-CSS outrun backdrop: glowing sun on the horizon + receding neon grid floor -->
+<!-- Pure-CSS outrun backdrop: receding neon grid floor (+ optional horizon sun).
+     The sun is opt-in (`sun` prop) so it shows only on the cover, not every slide. -->
+<script setup>
+defineProps({ sun: Boolean })
+</script>
+
 <template>
   <div class="neon">
-    <div class="neon__sun">
+    <div v-if="sun" class="neon__sun">
       <div class="neon__sun-slits" />
     </div>
     <div class="neon__floor">

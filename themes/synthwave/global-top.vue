@@ -1,4 +1,5 @@
-<!-- Outrun backdrop rendered behind every slide: neon sun + perspective grid floor -->
+<!-- Outrun backdrop rendered behind every slide: perspective grid floor.
+     The sun lives only on the cover (see cover.vue) — not every slide. -->
 <template>
   <div class="sw-fx">
     <NeonGrid />
@@ -12,6 +13,9 @@
   inset: 0;
   pointer-events: none;
   z-index: 0;
+  /* the deep-indigo backdrop now lives here, behind the grid floor, so every
+     slide's (transparent) content layer keeps the grid visible */
+  background: linear-gradient(180deg, #0b0420 0%, #1a0938 55%, #2a0a52 100%);
 }
 /* faint horizontal scanlines for the CRT-meets-VHS feel */
 .sw-fx__scan {
@@ -26,7 +30,4 @@
   );
   opacity: .5;
 }
-
-/* lift slide content above the backdrop */
-.slidev-layout > * { position: relative; z-index: 1; }
 </style>
