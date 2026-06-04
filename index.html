@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itenium Open Space Day — AI Track</title>
+  <style>
+    :root {
+      --bg:        #07070a;
+      --bg-2:      #0e0e15;
+      --red:       #ff1f3d;
+      --red-deep:  #b3001b;
+      --glow:      rgba(255, 31, 61, .55);
+      --line:      rgba(255, 31, 61, .22);
+      --green:     #36ff9b;
+      --text:      #c9ccd4;
+      --dim:       #6b7180;
+      /* synthwave accents for the neon-grid card */
+      --sw-pink:   #ff2e88;
+      --sw-cyan:   #05d9e8;
+      --sw-purple: #7700ff;
+      --sw-bg:     #0b0420;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: radial-gradient(130% 130% at 50% -10%, var(--bg-2), var(--bg) 60%);
+      color: var(--text);
+      font-family: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace;
+      min-height: 100vh;
+      padding: 3rem 2rem 4rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', 'Segoe UI', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      color: var(--red);
+      text-shadow: 0 0 8px var(--glow), 0 0 28px var(--glow);
+      margin-bottom: .5rem;
+    }
+
+    header p {
+      color: var(--dim);
+      font-size: .85rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* thin red rule under the header */
+    header::after {
+      content: '';
+      display: block;
+      margin: 1.4rem auto 0;
+      width: min(480px, 80%);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+      opacity: .5;
+    }
+
+    /* ── grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ── base card ── */
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--bg-2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      /* whole card is the <a>, so no extra cursor tweaking needed */
+    }
+
+    /* clickable cards */
+    a.card {
+      text-decoration: none;
+      color: inherit;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    a.card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px var(--glow), 0 0 0 1px var(--red);
+      border-color: var(--red);
+    }
+
+    /* dimmed / disabled card */
+    .card--dim {
+      opacity: .38;
+      filter: grayscale(.5);
+      cursor: default;
+    }
+
+    /* ── cover area ── */
+    .card__cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #111;
+      position: relative;
+    }
+
+    .card__cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* hide img element if the file is missing — the dark bg shows through */
+    .card__cover img.hidden {
+      display: none;
+    }
+
+    /* ── synthwave neon-grid cover (CSS-only, no image) ── */
+    .neon-grid {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #0b0420 0%, #1a0040 50%, #2d0060 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* horizontal gradient bar at the horizon */
+    .neon-grid::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: 40%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--sw-cyan), var(--sw-pink), var(--sw-cyan), transparent);
+      box-shadow: 0 0 12px 2px var(--sw-pink);
+    }
+
+    /* perspective grid lines via SVG data-URI — drawn once, reusable */
+    .neon-grid::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      /* SVG perspective grid: vertical lines converging to a vanishing point at center-top,
+         and horizontal lines spaced with exponential foreshortening */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 180' preserveAspectRatio='none'%3E%3Cg stroke='%23ff2e88' stroke-width='0.5' opacity='0.55'%3E%3C!-- vertical converging lines --%3E%3Cline x1='160' y1='72' x2='0'   y2='180'/%3E%3Cline x1='160' y1='72' x2='40'  y2='180'/%3E%3Cline x1='160' y1='72' x2='80'  y2='180'/%3E%3Cline x1='160' y1='72' x2='120' y2='180'/%3E%3Cline x1='160' y1='72' x2='160' y2='180'/%3E%3Cline x1='160' y1='72' x2='200' y2='180'/%3E%3Cline x1='160' y1='72' x2='240' y2='180'/%3E%3Cline x1='160' y1='72' x2='280' y2='180'/%3E%3Cline x1='160' y1='72' x2='320' y2='180'/%3E%3C/g%3E%3Cg stroke='%2305d9e8' stroke-width='0.5' opacity='0.55'%3E%3C!-- horizontal foreshortened lines --%3E%3Cline x1='0' y1='90'  x2='320' y2='90'/%3E%3Cline x1='0' y1='105' x2='320' y2='105'/%3E%3Cline x1='0' y1='122' x2='320' y2='122'/%3E%3Cline x1='0' y1='142' x2='320' y2='142'/%3E%3Cline x1='0' y1='165' x2='320' y2='165'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 100% 100%;
+    }
+
+    /* SYNTHWAVE label overlay */
+    .neon-grid__label {
+      position: absolute;
+      top: 12%;
+      left: 0; right: 0;
+      text-align: center;
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(.65rem, 2.2vw, .95rem);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      /* magenta→cyan gradient text */
+      background: linear-gradient(90deg, var(--sw-pink), var(--sw-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      filter: drop-shadow(0 0 6px var(--sw-pink));
+      z-index: 1;
+    }
+
+    /* ── card body ── */
+    .card__body {
+      padding: 1rem 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+      flex: 1;
+    }
+
+    .card__title {
+      font-family: 'Orbitron', 'Segoe UI', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--red);
+      text-shadow: 0 0 6px var(--glow);
+      line-height: 1.3;
+    }
+
+    .card__desc {
+      font-size: .78rem;
+      color: var(--dim);
+      line-height: 1.55;
+    }
+
+    /* "Coming soon" badge */
+    .card__badge {
+      display: inline-block;
+      margin-top: auto;
+      padding: .2rem .6rem;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--dim);
+      align-self: flex-start;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Itenium Open Space Day</h1>
+    <p>AI Track — Session Index</p>
+  </header>
+
+  <main class="grid">
+
+    <!-- 1 — More AI Sessions? -->
+    <a class="card" href="./more-ai-sessions/">
+      <div class="card__cover">
+        <img src="./more-ai-sessions/cover.jpg" alt=""
+             onerror="this.classList.add('hidden')">
+      </div>
+      <div class="card__body">
+        <div class="card__title">More AI Sessions?</div>
+        <p class="card__desc">Pitch deck — additional AI-track sessions for the Itenium open space day.</p>
+      </div>
+    </a>
+
+    <!-- 2 — Shovelware (CSS-only synthwave cover, no image) -->
+    <a class="card" href="./shovelware-synthwave/">
+      <div class="card__cover">
+        <div class="neon-grid">
+          <span class="neon-grid__label">Synthwave</span>
+        </div>
+      </div>
+      <div class="card__body">
+        <div class="card__title">Where Is All the Shovelware?</div>
+        <p class="card__desc">A confession, in 8 slides — the shovelware that turned out to be leverage.</p>
+      </div>
+    </a>
+
+    <!-- 3 — Bookclub Dossier -->
+    <a class="card" href="./bookclub-dossier/">
+      <div class="card__cover">
+        <img src="./bookclub-dossier/cover.png" alt=""
+             onerror="this.classList.add('hidden')">
+      </div>
+      <div class="card__body">
+        <div class="card__title">Target Dossier — Next Read</div>
+        <p class="card__desc">Bookclub — six classified targets. Select one for acquisition.</p>
+      </div>
+    </a>
+
+    <!-- 4 — Coming soon: non-clickable, dimmed, no <a> -->
+    <div class="card card--dim">
+      <div class="card__cover" style="background:#0a0a10;"></div>
+      <div class="card__body">
+        <div class="card__title">???</div>
+        <p class="card__desc">&nbsp;</p>
+        <span class="card__badge">Coming soon</span>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
