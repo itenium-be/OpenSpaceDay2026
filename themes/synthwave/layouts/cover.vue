@@ -47,7 +47,7 @@
 .sw-cover__sun {
   position: absolute;
   left: 50%;
-  top: 58%;
+  top: 50%;
   width: 340px;
   height: 340px;
   transform: translate(-50%, -100%);
@@ -76,7 +76,7 @@
 .hack {
   position: absolute;
   left: 50%;
-  top: 58%;            /* the grid's horizon / vanishing point */
+  top: 50%;            /* the grid's horizon / vanishing point (now at half height) */
   width: 112px;
   height: 200px;
   margin: 0;
@@ -94,7 +94,7 @@
    the end point IS the vanishing point, the path lies along a grid radial, so it
    follows the drawn lines' angle. translate(-56,-100) centers the box on it. */
 @keyframes hack-warp {
-  0%   { transform: translate(330px, 150px)  scale(1.3);  opacity: 0; }
+  0%   { transform: translate(330px, 210px)  scale(1.3);  opacity: 0; }
   14%  { opacity: 1; }
   94%  { opacity: 1; }
   100% { transform: translate(80px, -100px) scale(.04);  opacity: 0; }

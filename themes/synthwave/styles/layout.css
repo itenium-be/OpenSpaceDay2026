@@ -173,7 +173,7 @@
 }
 .sw-cover .sw-subtle { position: relative; z-index: 2; }
 /* lift only the title into the top of the sun (like the end slide); h2, subtitle and boot line keep their place */
-.sw-cover h1 { transform: translateY(-150px); }
+.sw-cover h1 { transform: translateY(-178px); }
 .sw-cover__tag {
   position: absolute;
   left: 0; right: 0;

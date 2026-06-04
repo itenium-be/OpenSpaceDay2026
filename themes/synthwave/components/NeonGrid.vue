@@ -12,6 +12,7 @@ defineProps({ sun: Boolean })
     <div class="neon__floor">
       <div class="neon__grid" />
     </div>
+    <div class="neon__haze" />
     <div class="neon__horizon" />
   </div>
 </template>
@@ -52,14 +53,14 @@ defineProps({ sun: Boolean })
   );
 }
 
-/* the receding floor occupies the bottom 42% */
+/* the receding floor takes the bottom half of the screen (Kung Fury style) */
 .neon__floor {
   position: absolute;
   left: 0;
   right: 0;
-  top: 58%;
+  top: 50%;
   bottom: 0;
-  perspective: 240px;
+  perspective: 260px;
   perspective-origin: 50% 0%;
   overflow: hidden;
 }
@@ -69,28 +70,40 @@ defineProps({ sun: Boolean })
   right: -50%;
   top: 0;
   height: 200%;
+  /* Hackerman red: both line directions the same hot red/magenta */
   background-image:
-    linear-gradient(to right, rgba(5, 217, 232, .55) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 46, 136, .55) 1px, transparent 1px);
-  background-size: 44px 44px;
-  transform: rotateX(72deg);
+    linear-gradient(to right, rgba(255, 32, 84, .62) 1.4px, transparent 1.4px),
+    linear-gradient(to bottom, rgba(255, 32, 84, .55) 1.4px, transparent 1.4px);
+  background-size: 46px 46px;
+  transform: rotateX(74deg);
   transform-origin: 50% 0%;
   animation: neon-scroll 4s linear infinite;
 }
 /* scroll the grid toward the viewer for forward-motion */
 @keyframes neon-scroll {
   from { background-position: 0 0; }
-  to   { background-position: 0 44px; }
+  to   { background-position: 0 46px; }
 }
 
-/* glowing horizon seam where sun meets floor */
+/* bright atmospheric haze along the horizon — the glowing band from the film */
+.neon__haze {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 130px;
+  transform: translateY(-50%);
+  background: radial-gradient(62% 100% at 50% 50%, rgba(190, 240, 255, .55), rgba(120, 180, 255, .14) 42%, transparent 72%);
+  filter: blur(7px);
+}
+/* the crisp glowing horizon seam where grid meets sky */
 .neon__horizon {
   position: absolute;
   left: 0;
   right: 0;
-  top: 58%;
+  top: 50%;
   height: 2px;
-  background: var(--sw-cyan, #05d9e8);
-  box-shadow: 0 0 12px var(--sw-cyan, #05d9e8), 0 0 30px rgba(5, 217, 232, .7);
+  background: #eafdff;
+  box-shadow: 0 0 10px #fff, 0 0 26px var(--sw-cyan, #05d9e8), 0 0 60px rgba(255, 40, 95, .6);
 }
 </style>

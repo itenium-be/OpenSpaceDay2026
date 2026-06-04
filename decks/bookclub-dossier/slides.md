@@ -52,7 +52,7 @@ class: dx
 .cover .ln b{color:var(--amber);}
 
 /* manifest */
-.man{flex:1;margin-top:1rem;border:1px solid var(--line);border-radius:6px;overflow:hidden;}
+.man{margin-top:1rem;border:1px solid var(--line);border-radius:6px;overflow:hidden;}
 .man .h,.man .r{display:grid;grid-template-columns:3.2rem 1fr 9rem 6rem 5rem;gap:1rem;padding:.55rem 1rem;align-items:center;}
 .man .h{background:rgba(39,240,138,.08);color:var(--grn);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
 .man .r{border-top:1px solid var(--line);font-size:.95rem;}
@@ -73,7 +73,15 @@ class: dx
 .dos .line{margin:.2rem 0;}.dos .pr{color:var(--grn);}
 .dos .quote{color:var(--amber);font-size:1.45rem;margin:.4rem 0 1.1rem;}
 .dos .desc{font-size:1.02rem;line-height:1.5;color:var(--ink);}
-.dos .threat{align-self:start;border:1px solid var(--line);border-radius:6px;padding:.85rem 1.2rem;background:var(--panel);}
+.dos .threat{border:1px solid var(--line);border-radius:6px;padding:.85rem 1.2rem;background:var(--panel);}
+.dos .rcol{display:flex;flex-direction:column;gap:1rem;align-self:start;}
+.dos .vid{margin:0;align-self:flex-end;position:relative;width:132px;padding:.45rem;
+  background:var(--panel);border:1px solid var(--line);border-radius:6px;box-shadow:0 0 18px rgba(39,240,138,.12);}
+.dos .vid img{display:block;width:100%;border-radius:3px;
+  filter:grayscale(.35) sepia(1) hue-rotate(70deg) saturate(2.2) brightness(.82) contrast(1.18);}
+.dos .vid::after{content:"";position:absolute;left:.45rem;right:.45rem;top:.45rem;bottom:1.7rem;border-radius:3px;
+  pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.32) 2px 3px);mix-blend-mode:multiply;}
+.dos .vid figcaption{margin-top:.4rem;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);text-align:center;}
 .dos .threat .t{font-size:.72rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;margin-bottom:.5rem;}
 .dos .gauge{display:flex;justify-content:space-between;align-items:center;margin:.45rem 0;font-size:.82rem;
   letter-spacing:.08em;text-transform:uppercase;color:var(--dim);}
@@ -178,11 +186,14 @@ class: dx
         <div class="desc">The definitive narrative bridge from the basics of machine learning to the ethics of AI — the single best read spanning tech, philosophy and society at once.</div>
         <div class="for"><b>FOR:</b> everyone, but the meatiest target. ML-curious analysts welcome.</div>
       </div>
+      <div class="rcol">
       <div class="threat">
         <div class="t">// threat assessment</div>
         <div class="gauge"><span>Brainpower</span><b>█████</b></div>
         <div class="gauge"><span>Debate fuel</span><b>█████</b></div>
         <div class="gauge"><span>Accessibility</span><b>███<span class="o">██</span></b></div>
+      </div>
+      <figure class="vid"><img src="/the-alignment-problem.jpg" alt="cover"/></figure>
       </div>
     </div>
   </div>
@@ -211,11 +222,14 @@ class: dx
         <div class="desc">Reads like a thriller, contains zero code: the hidden geopolitical war over who gets to manufacture the world's most critical technology.</div>
         <div class="for"><b>FOR:</b> anyone. Pure narrative history, no tech barrier.</div>
       </div>
+      <div class="rcol">
       <div class="threat">
         <div class="t">// threat assessment</div>
         <div class="gauge"><span>Brainpower</span><b>████<span class="o">█</span></b></div>
         <div class="gauge"><span>Debate fuel</span><b>███<span class="o">██</span></b></div>
         <div class="gauge"><span>Accessibility</span><b>████<span class="o">█</span></b></div>
+      </div>
+      <figure class="vid"><img src="/chip-war.jpg" alt="cover"/></figure>
       </div>
     </div>
   </div>
@@ -244,11 +258,14 @@ class: dx
         <div class="desc">Short, sharp, gloriously opinionated. Guaranteed to start a fight about comments, naming and abstraction — among the developers, at least.</div>
         <div class="for"><b>FOR:</b> developers. Richest debate, narrowest door.</div>
       </div>
+      <div class="rcol">
       <div class="threat">
         <div class="t">// threat assessment</div>
         <div class="gauge"><span>Brainpower</span><b>████<span class="o">█</span></b></div>
         <div class="gauge"><span>Debate fuel</span><b>█████</b></div>
         <div class="gauge"><span>Accessibility</span><b>██<span class="o">███</span></b></div>
+      </div>
+      <figure class="vid"><img src="/philosophy-of-software-design.jpg" alt="cover"/></figure>
       </div>
     </div>
   </div>
@@ -277,11 +294,14 @@ class: dx
         <div class="desc">Funny, modern and brutally relatable to anyone who has ever touched old code — or an old process. The org angle lets non-devs in.</div>
         <div class="for"><b>FOR:</b> devs &amp; testers; POs get the org angle.</div>
       </div>
+      <div class="rcol">
       <div class="threat">
         <div class="t">// threat assessment</div>
         <div class="gauge"><span>Brainpower</span><b>███<span class="o">██</span></b></div>
         <div class="gauge"><span>Debate fuel</span><b>████<span class="o">█</span></b></div>
         <div class="gauge"><span>Accessibility</span><b>███<span class="o">██</span></b></div>
+      </div>
+      <figure class="vid"><img src="/kill-it-with-fire.jpg" alt="cover"/></figure>
       </div>
     </div>
   </div>
@@ -310,11 +330,14 @@ class: dx
         <div class="desc">The everyone-read-this LLM book. Practical, finishable in a weekend, opinions guaranteed at the table — the surest mixer of the six.</div>
         <div class="for"><b>FOR:</b> literally everyone in the room. The perfect mixer.</div>
       </div>
+      <div class="rcol">
       <div class="threat">
         <div class="t">// threat assessment</div>
         <div class="gauge"><span>Brainpower</span><b>███<span class="o">██</span></b></div>
         <div class="gauge"><span>Debate fuel</span><b>█████</b></div>
         <div class="gauge"><span>Accessibility</span><b>█████</b></div>
+      </div>
+      <figure class="vid"><img src="/co-intelligence.jpg" alt="cover"/></figure>
       </div>
     </div>
   </div>
@@ -343,11 +366,14 @@ class: dx
         <div class="desc">The clear-eyed hype antidote. Best deployed back-to-back with Co-Intelligence (#05) for a built-in debate: the believer and the skeptic.</div>
         <div class="for"><b>FOR:</b> everyone; especially satisfying for the skeptics.</div>
       </div>
+      <div class="rcol">
       <div class="threat">
         <div class="t">// threat assessment</div>
         <div class="gauge"><span>Brainpower</span><b>████<span class="o">█</span></b></div>
         <div class="gauge"><span>Debate fuel</span><b>████<span class="o">█</span></b></div>
         <div class="gauge"><span>Accessibility</span><b>████<span class="o">█</span></b></div>
+      </div>
+      <figure class="vid"><img src="/ai-snake-oil.jpg" alt="cover"/></figure>
       </div>
     </div>
   </div>
