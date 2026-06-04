@@ -125,6 +125,8 @@
   font-size: 4.2rem;
   line-height: 1.04;
   margin: 0;
+  position: relative;
+  z-index: 2;
   /* animated gradient sheen sweeping across the letters */
   background: linear-gradient(100deg, #8c0016 0%, #ff1f3d 25%, #ff7a4d 44%, #ffffff 50%, #ff7a4d 56%, #ff1f3d 75%, #8c0016 100%);
   background-size: 220% auto;
@@ -139,7 +141,8 @@
 @keyframes evil-sheen {
   to { background-position: 220% center; }
 }
-.evil-cover h2 { margin-top: .6rem; color: var(--evil-text); }
+.evil-cover h2 { margin-top: .6rem; color: var(--evil-text); position: relative; z-index: 2; }
+.evil-cover .evil-subtle { position: relative; z-index: 2; }
 .evil-cover .hal-eye {
   position: absolute;
   top: 4%;
@@ -150,7 +153,8 @@
 .evil-cover__boot {
   position: absolute;
   left: 3rem;
-  bottom: 6%;
+  bottom: 1.4rem;
+  z-index: 2;
   color: var(--evil-dim);
   font-size: .8rem;
   letter-spacing: .1em;
