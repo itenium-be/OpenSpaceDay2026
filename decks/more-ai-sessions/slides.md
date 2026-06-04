@@ -21,6 +21,8 @@ layout: cover
 
 ---
 layout: default
+banner: system-scan
+class: banner-compact
 ---
 
 # System scan: the track is online
@@ -49,9 +51,8 @@ persona: "“I'm afraid I can only let you pick one, Dave.”"
 ---
 layout: default
 banner: the-judge
+heading: "01 · Evals"
 ---
-
-# 01 · Evals
 
 <div class="evil-meta"><span class="evil-codename">The Judge</span><span class="badge">2H Workshop / Talk</span></div>
 
@@ -66,9 +67,8 @@ Build a golden dataset · write an **LLM-as-judge** grader · wire evals into **
 ---
 layout: default
 banner: the-librarian
+heading: "02 · RAG & Embeddings"
 ---
-
-# 02 · RAG &amp; Embeddings
 
 <div class="evil-meta"><span class="evil-codename">The Librarian</span><span class="badge">2H Workshop / Talk</span></div>
 
@@ -83,9 +83,8 @@ Embed a corpus · watch naive RAG retrieve garbage · fix with **chunking + hybr
 ---
 layout: default
 banner: the-gauntlet
+heading: "03 · Model Bake-Off"
 ---
-
-# 03 · Model Bake-Off
 
 <div class="evil-meta"><span class="evil-codename">The Gauntlet</span><span class="badge">2H Workshop</span></div>
 
@@ -100,9 +99,8 @@ Claude/GPT (the ceiling) vs Llama/Qwen on Ollama (the privacy floor) vs a **hybr
 ---
 layout: default
 banner: skynet-royale
+heading: "04 · Coding Agents Cage Match"
 ---
-
-# 04 · Coding Agents Cage Match
 
 <div class="evil-meta"><span class="evil-codename">Skynet Royale</span><span class="badge badge--talk">Talk + Live Demo</span></div>
 
@@ -117,9 +115,8 @@ Who finishes? Who writes tests unprompted? Who hallucinates an API? One task, cl
 ---
 layout: default
 banner: the-warden
+heading: "05 · The EU AI Act"
 ---
-
-# 05 · The EU AI Act
 
 <div class="evil-meta"><span class="evil-codename">The Warden</span><span class="badge badge--radar">Talk · On the radar</span></div>
 
@@ -134,9 +131,8 @@ Risk tiers (prohibited → high-risk → limited → minimal) · what "high-risk
 ---
 layout: default
 banner: dream-engine
+heading: "06 · Diffusion Demystified"
 ---
-
-# 06 · Diffusion Demystified
 
 <div class="evil-meta"><span class="evil-codename">Dream Engine</span><span class="badge badge--talk">Talk + Live Gen</span></div>
 
@@ -151,9 +147,8 @@ Forward vs reverse diffusion · how the prompt steers it (CLIP) · why hands use
 ---
 layout: default
 banner: the-oracle
+heading: "07 · Text-to-SQL & Semantic Search"
 ---
-
-# 07 · Text-to-SQL &amp; Semantic Search
 
 <div class="evil-meta"><span class="evil-codename">The Oracle</span><span class="badge">2H Workshop</span></div>
 

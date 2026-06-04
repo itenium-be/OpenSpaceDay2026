@@ -99,3 +99,15 @@ each in `public/` under the filename below; it loads on the matching session sli
 | 07 Text-to-SQL  | `the-oracle.jpg`    | a wide dark shrine, a glowing red database crystal at center whispering, plain words on the left turning into streams of structured light flowing right --ar 16:5 --v 7
 
 Each: append ` --ar 16:5 --v 7` (add `--style raw` to taste).
+
+---
+
+## Overview banner — the system scan
+
+The intro slide ("System scan: the track is online") gets the same top-banner
+treatment. It should read as *surveying the whole track and finding the holes* —
+mostly-online with a few dark gaps.
+
+| Slide       | File                | Prompt (wide scene) |
+|-------------|---------------------|---------------------|
+| 02 Overview | `system-scan.jpg`   | a wide dark mission-control war room, a vast radar grid sweeping across a towering wall of server nodes, most cells glowing alive in deep red while a few cold dark gaps are punched out of the array, a single bright red scan-line crawling left to right, austere, cinematic, heavy negative space --ar 16:5 --v 7 |
