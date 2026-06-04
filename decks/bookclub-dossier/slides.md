@@ -66,8 +66,8 @@ class: dx
 .dos{flex:1;display:grid;grid-template-columns:1fr;gap:0;margin-top:.8rem;}
 .dos .top{position:relative;display:grid;grid-template-columns:1fr auto;align-items:start;
   padding:.9rem 1.1rem .8rem;border:1px solid var(--line);border-radius:6px;overflow:hidden;
-  background-image:linear-gradient(90deg, rgba(4,17,10,.93) 38%, rgba(4,17,10,.5) 100%), var(--hdr, none);
-  background-size:cover;background-position:center;}
+  background-image:var(--hdr-grad, linear-gradient(90deg, rgba(4,17,10,.93) 38%, rgba(4,17,10,.5) 100%)), var(--hdr, none);
+  background-size:cover;background-position:var(--hdr-pos, center);}
 .dos .case{font-size:.74rem;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;}
 .dos h1{font-size:2.9rem;font-weight:800;color:var(--grn);margin:.4rem 0 .1rem;line-height:1;
   text-shadow:0 0 18px rgba(39,240,138,.4);}
@@ -191,7 +191,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #01</span></div>
   <div class="dos">
-    <div class="top" style="--hdr:url(/hdr-alignment.jpg)">
+    <div class="top" style="--hdr:url(/hdr-alignment.jpg); --hdr-pos:center top; --hdr-grad:linear-gradient(90deg, rgba(4,17,10,.95) 0 30%, rgba(4,17,10,.45) 60%, rgba(4,17,10,.18) 100%)">
       <div>
         <div class="case">AI / ETHICS · ACQUIRED 2020</div>
         <h1>The Alignment Problem</h1>
