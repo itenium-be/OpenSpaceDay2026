@@ -7,19 +7,19 @@
   <!-- Inline SVG favicon: glowing red eye on transparent bg — no asset to ship, base-path independent -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Ccircle%20cx='16'%20cy='16'%20r='12'%20fill='%23ff1f3d'%20opacity='.3'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='8'%20fill='%23ff1f3d'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='3'%20fill='%2307070a'/%3E%3C/svg%3E">
 
-  <meta name="description" content="Itenium Open Space Day — AI-track session decks: pitch sessions, a shovelware confession, a bookclub dossier, and 27 conversation starters.">
+  <meta name="description" content="Itenium Open Space Day decks: the open-space opening deck, More AI Sessions (AI-track session pitches), Where Is All the Shovelware? (the AI inflection point), and the bookclub Next-Read target dossier.">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Itenium Open Space Day">
-  <meta property="og:description" content="AI-track session decks for Itenium's open space day.">
+  <meta property="og:description" content="The open-space opening deck, More AI Sessions (AI-track pitches), Where Is All the Shovelware? (the AI inflection point), and the bookclub Next-Read target dossier.">
   <meta property="og:url" content="https://itenium-be.github.io/OpenSpaceDay2026/">
   <meta property="og:image" content="https://itenium-be.github.io/OpenSpaceDay2026/open-space/cover.png">
   <meta property="og:image:width" content="1376">
   <meta property="og:image:height" content="864">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Itenium Open Space Day">
-  <meta name="twitter:description" content="AI-track session decks for Itenium's open space day.">
+  <meta name="twitter:description" content="The open-space opening deck, More AI Sessions (AI-track pitches), Where Is All the Shovelware? (the AI inflection point), and the bookclub Next-Read target dossier.">
   <meta name="twitter:image" content="https://itenium-be.github.io/OpenSpaceDay2026/open-space/cover.png">
 
   <style>
@@ -79,7 +79,9 @@
     .card__cover img.hidden { display: none; }
 
     .card:hover .card__cover img,
-    .card:focus-visible .card__cover img { transform: scale(1.05); }
+    .card:focus-visible .card__cover img,
+    .card:hover .neon-grid,
+    .card:focus-visible .neon-grid { transform: scale(1.05); }
 
     /* ── synthwave neon-grid cover (CSS-only, no image) ── */
     .neon-grid {
@@ -88,6 +90,7 @@
       background: linear-gradient(180deg, #0b0420 0%, #1a0040 50%, #2d0060 100%);
       overflow: hidden;
       position: relative;
+      transition: transform .4s ease;
     }
     /* horizontal gradient bar at the horizon */
     .neon-grid::before {
