@@ -66,3 +66,7 @@
 .os-end { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; }
 .os-end h2 { font-size: 3rem; margin: 0; }
 .os-end p { font-size: 1.4rem; color: var(--os-muted); margin-top: 1rem; }
+
+.os-rules { display: grid; gap: 1.4rem; margin-top: .5rem; }
+.os-rules h3 { font-size: 1.5rem; margin: 0 0 .3rem; color: var(--os-cat); }
+.os-rules p, .os-rules { font-size: 1.2rem; }
