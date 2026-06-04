@@ -25,7 +25,7 @@ layout: intro
 layout: grid
 cat: debate
 icon: 🔥
-title: Debates & hot takes
+heading: Debates & hot takes
 ---
 
 <div class="os-grid">
@@ -42,7 +42,7 @@ title: Debates & hot takes
 layout: grid
 cat: friction
 icon: 🤝
-title: Cross-role friction
+heading: Cross-role friction
 ---
 
 <div class="os-grid">
@@ -58,7 +58,7 @@ title: Cross-role friction
 layout: grid
 cat: craft
 icon: 🛠️
-title: Craft & skill-sharing
+heading: Craft & skill-sharing
 ---
 
 <div class="os-grid">
@@ -76,7 +76,7 @@ title: Craft & skill-sharing
 layout: grid
 cat: culture
 icon: 🌱
-title: Culture & ways-of-working
+heading: Culture & ways-of-working
 ---
 
 <div class="os-grid">
