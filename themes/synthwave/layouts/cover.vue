@@ -4,6 +4,21 @@
          headband + shades, fists up — warping up the grid into the past. Faces left (his travel direction). -->
     <div class="hack" aria-hidden="true">
       <svg class="hack__svg" viewBox="0 0 110 162">
+        <!-- Kung Fury hoverboard: Hackerman rides a flying keyboard. Drawn before
+             the figure so the shoes paint on top of it (he stands on the board). -->
+        <g class="hack__board">
+          <!-- front edge (board thickness) -->
+          <path d="M22 159 L86 159 L84 163 L24 163 Z" fill="#0a1233" />
+          <!-- top face, in perspective (wider/closer at the front) -->
+          <path d="M32 149 L76 149 L86 159 L22 159 Z" fill="#14224f" stroke="#9bfcff" stroke-width="1" stroke-linejoin="round" />
+          <!-- key rows receding toward the back -->
+          <path d="M30 152 L78 152" stroke="#9bfcff" stroke-width=".6" opacity=".8" />
+          <path d="M26 155.5 L82 155.5" stroke="#9bfcff" stroke-width=".6" opacity=".8" />
+          <!-- key columns fanning out with the perspective -->
+          <path d="M43 149.5 L40 158.5" stroke="#9bfcff" stroke-width=".5" opacity=".5" />
+          <path d="M54 149.5 L54 158.5" stroke="#9bfcff" stroke-width=".5" opacity=".5" />
+          <path d="M65 149.5 L68 158.5" stroke="#9bfcff" stroke-width=".5" opacity=".5" />
+        </g>
         <g class="hack__fig">
           <!-- back leg (jeans) -->
           <rect x="54" y="94" width="15" height="48" rx="7" fill="#7e88a0" transform="rotate(-6 61 118)" />
@@ -22,15 +37,23 @@
           <rect x="46" y="54" width="12" height="26" rx="6" fill="#17171e" transform="rotate(58 52 67)" />
           <rect x="39" y="34" width="11" height="27" rx="5.5" fill="#1b1b24" transform="rotate(-16 44 47)" />
           <circle cx="41" cy="36" r="6.5" fill="#e7b48a" />
-          <!-- head -->
-          <circle cx="48" cy="24" r="13" fill="#e7b48a" />
-          <!-- hair at the back -->
-          <path d="M48 10 q13 1 12 17 q-1 -11 -12 -14 z" fill="#16100a" />
-          <!-- shades -->
-          <rect x="33" y="20" width="18" height="7" rx="2.5" fill="#0b0b0b" />
-          <!-- red headband + tail -->
-          <rect x="34" y="13" width="21" height="6" rx="2" fill="#ff3b3b" />
-          <path d="M55 15 l13 -5 -3 10 z" fill="#d62828" />
+          <!-- neck (drawn first so the head sits on top of it) -->
+          <rect x="45" y="32" width="7" height="12" rx="2.5" fill="#d99c72" />
+          <!-- head — profile facing left -->
+          <circle cx="47" cy="23" r="12" fill="#e7b48a" />
+          <!-- nose poking out to the left -->
+          <path d="M35.5 22 q-3 1.4 -2.4 3.4 q.7 1.3 2.4 1.1 z" fill="#e7b48a" />
+          <!-- ear on the near (right) side -->
+          <circle cx="52" cy="25" r="2.4" fill="#d99c72" />
+          <!-- hair: crown sweeping back over the skull -->
+          <path d="M38 15 q8 -9 19 -1 q3 7 1 15 q1.5 -10 -4 -14 q-8 -4.5 -16 0 z" fill="#16100a" />
+          <!-- shades over the eyes -->
+          <rect x="34" y="19" width="17" height="6.5" rx="2.5" fill="#0b0b0b" />
+          <!-- temple arm of the shades toward the ear -->
+          <rect x="49" y="20.5" width="6" height="2" rx="1" fill="#0b0b0b" />
+          <!-- red headband across the forehead + tail flying back -->
+          <rect x="35" y="12" width="22" height="5.5" rx="2" fill="#ff3b3b" />
+          <path d="M56 13 l13 -4 -2 9 z" fill="#d62828" />
         </g>
       </svg>
     </div>
@@ -85,6 +108,8 @@
   animation: hack-warp 5s cubic-bezier(.45, 0, .75, 1) infinite;
 }
 .hack__svg { width: 100%; height: 100%; overflow: visible; }
+/* the flying keyboard glows cyan, distinct from the figure's pink rim */
+.hack__board { filter: drop-shadow(0 0 3px rgba(155, 252, 255, .9)) drop-shadow(0 0 8px rgba(5, 217, 232, .6)); }
 
 /* travels straight into the central vanishing point — which is both where the
    grid lines converge AND the base of the sun (the horizon at top:58%). Because

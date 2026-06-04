@@ -1,7 +1,17 @@
 <!-- Outrun backdrop rendered behind every slide: deep-space starfield + perspective
      grid floor. The sun lives only on the cover (see cover.vue) — not every slide. -->
+<script setup>
+import { computed } from 'vue'
+import { useNav } from '@slidev/client'
+
+// Slides 4–6 (the content-dense default slides) drop the horizon lower so the
+// grid leaves more sky for the cards; every other slide keeps it mid-screen.
+const { currentPage } = useNav()
+const horizon = computed(() => (currentPage.value >= 4 && currentPage.value <= 6) ? '64%' : '50%')
+</script>
+
 <template>
-  <div class="sw-fx">
+  <div class="sw-fx" :style="{ '--sw-horizon': horizon }">
     <div class="sw-fx__stars" />
     <NeonGrid />
     <div class="sw-fx__scan" />
@@ -23,7 +33,10 @@
   left: 0;
   right: 0;
   top: 0;
-  height: 56%;
+  /* follow the horizon so the starfield recedes with it (+6% to overlap the seam,
+     matching the old 56% when the horizon sat at 50%) */
+  height: calc(var(--sw-horizon, 50%) + 6%);
+  transition: height .6s ease;
   background-image:
     radial-gradient(1.3px 1.3px at 30px 40px, #ffffff, transparent),
     radial-gradient(1px 1px at 120px 90px, #cfe8ff, transparent),

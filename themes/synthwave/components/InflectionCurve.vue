@@ -17,7 +17,7 @@
       <circle cx="192" cy="142" r="5" class="infl__dot" />
       <line x1="192" y1="142" x2="192" y2="160" class="infl__marker" />
     </svg>
-    <div class="infl__label">NOV 2025 — agentic coding got good</div>
+    <div class="infl__label"></div>
   </div>
 </template>
 

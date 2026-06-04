@@ -58,8 +58,9 @@ defineProps({ sun: Boolean })
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: var(--sw-horizon, 50%);
   bottom: 0;
+  transition: top .6s ease;
   perspective: 260px;
   perspective-origin: 50% 0%;
   overflow: hidden;
@@ -98,9 +99,10 @@ defineProps({ sun: Boolean })
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: var(--sw-horizon, 50%);
   height: 170px;
   transform: translateY(-50%);
+  transition: top .6s ease;
   /* bright cyan-white atmospheric glow hugging the horizon — the signature band
      from the still: hot white core, cyan mid, fading up into the starfield */
   background: radial-gradient(70% 100% at 50% 50%, rgba(224, 250, 255, .85), rgba(120, 205, 255, .34) 38%, rgba(80, 150, 255, .12) 60%, transparent 80%);
@@ -111,8 +113,9 @@ defineProps({ sun: Boolean })
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: var(--sw-horizon, 50%);
   height: 2px;
+  transition: top .6s ease;
   background: #eafdff;
   box-shadow: 0 0 12px #fff, 0 0 34px var(--sw-cyan, #05d9e8), 0 0 72px rgba(255, 40, 95, .55);
 }

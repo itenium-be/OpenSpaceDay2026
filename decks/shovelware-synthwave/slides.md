@@ -53,22 +53,22 @@ sub: "…you want shovelware? Here's my pile."
 ---
 layout: default
 num: "01"
-heading: The heist — Modernization
+heading: Modernization
 ---
 
 <div class="fleet" style="margin-top:.6rem">
-<div class="fleet__card"><h3>Build</h3><p>create-react-app → <strong>Vite</strong> · npm → <strong>Bun</strong> · JS/Flow → <strong>TypeScript</strong></p></div>
-<div class="fleet__card"><h3>Tests</h3><p>Jest → <strong>Vitest</strong> · <strong>Playwright</strong> · <strong>Testcontainers</strong></p></div>
-<div class="fleet__card"><h3>Replacing</h3><p>killed <strong>MomentJS</strong> · bumped <strong>Bootstrap</strong> · ditched <strong>AutoMapper</strong> + <strong>EPPlus</strong> (license flips)</p></div>
-<div class="fleet__card"><h3>Types</h3><p>TS <strong>strict</strong> · no-<code>any</code> · Node 22</p></div>
-<div class="fleet__card"><h3>Dead code</h3><p><strong>Knip</strong> · dropped superagent · numeral · bson · bodyparser</p></div>
-<div class="fleet__card"><h3>Integrate</h3><p>off-the-shelf <strong>self-hosted</strong> components — <strong>Gotenberg</strong> for PDF</p></div>
-<div class="fleet__card"><h3 style="margin-bottom: 5px">Hygiene</h3><p><code>master</code> → <code>main</code> · <strong>LF vs CRLF</strong></p></div>
-<div class="fleet__card"><h3>Guardrails</h3><p><strong>CI hardening</strong> · git hooks · <strong>Claude hooks</strong></p></div>
-<div class="fleet__card"><h3>.NET</h3><p><code>.slnx</code> · <code>Directory.*.props</code> · <strong>.NET 10</strong> · Roslynator</p></div>
+<div v-click class="fleet__card"><h3>Build</h3><p>create-react-app → <strong>Vite</strong> · npm → <strong>Bun</strong> · JS/Flow → <strong>TypeScript</strong></p></div>
+<div v-click class="fleet__card"><h3>Tests</h3><p>Jasmine / Jest → <strong>Vitest</strong> / Bun test · Playwright · Testcontainers · ArchUnit · Pact</p></div>
+<div v-click class="fleet__card"><h3>Replacing</h3><p><strong>Deprecated Packages · Dead Projects</strong> · ditched MomentJS · AutoMapper + EPPlus (license flips)</p></div>
+<div v-click class="fleet__card"><h3>Types</h3><p>TS <strong>strict</strong> · no-<code>any</code> · Node 22 · eslint · Prettier</p></div>
+<div v-click class="fleet__card"><h3>Upgrading</h3><p><strong>Majors with Breaking Changes</strong> · Bootstrap · Component Libraries</p></div>
+<div v-click class="fleet__card"><h3>Integrating</h3><p>off-the-shelf <strong>self-hosted</strong> components — Gotenberg for PDF · APIs you didn't even know existed</p></div>
+<div v-click class="fleet__card"><h3 style="margin-bottom: 5px">Hygiene</h3><p><strong>Knip</strong> · <code>master</code> → <code>main</code> · <strong>LF</strong> vs CRLF</p></div>
+<div v-click class="fleet__card"><h3>Guardrails</h3><p><strong>CI hardening</strong> · git hooks · <strong>Claude hooks</strong></p></div>
+<div v-click class="fleet__card"><h3 style="margin-bottom: 5px">.NET</h3><p><code>.slnx</code> · <code>Directory.*.props</code> · .NET 10 · Roslynator</p></div>
 </div>
 
-<div class="sw-subtle" style="margin-top:5px">Headline burst: <span class="sw-cyan">18 Feb 2026</span>. 285 commits · ~27 repos.</div>
+<div v-click class="sw-subtle" style="margin-top:5px">Headline burst: <span class="sw-cyan">18 Feb 2026</span>. 285 commits · ~27 repos.</div>
 
 ---
 layout: default
@@ -77,15 +77,15 @@ heading: The fleet
 ---
 
 <div class="fleet">
-<div class="fleet__card"><h3>Scout → Atlas</h3><p>Self-hosted deep-research pipeline: open an issue → cited research, auto-published to a themed site.</p><span class="stack">Python · Jekyll · Docker · Shell</span></div>
-<div class="fleet__card"><h3>Meridian</h3><p>Scroll-driven memory timeline + animated travel map.</p><span class="stack">TypeScript · React</span></div>
-<div class="fleet__card"><h3>Zombies</h3><p>Python zombie game to teach kids at CoderDojo.</p><span class="stack">Python</span></div>
-<div class="fleet__card"><h3>Slidev decks</h3><p>Talks as code — themed, reusable presentations.</p><span class="stack">Vue · Bun · Astro</span></div>
-<div class="fleet__card"><h3>Itenium.Forge</h3><p>Opinionated MiroService Chassis and Skills Framework</p><span class="stack">.NET · React · Claude</span></div>
-<div class="fleet__card"><h3>New capabilities</h3><p>Starify Links · Slack Meme Poster · TTC Aalst · …</p><span class="stack">scripts · sites · bots</span></div>
+<div v-click class="fleet__card"><h3>Scout → Atlas</h3><p>Self-hosted deep-research pipeline: open an issue → cited research, auto-published to a themed site.</p><span class="stack">Python · Jekyll · Docker · Shell</span></div>
+<div v-click class="fleet__card"><h3>Meridian</h3><p>Scroll-driven memory timeline + animated travel map.</p><span class="stack">TypeScript · React</span></div>
+<div v-click class="fleet__card"><h3>Zombies</h3><p>Python zombie game to teach kids at CoderDojo.</p><span class="stack">Python</span></div>
+<div v-click class="fleet__card"><h3>Slidev decks</h3><p>Talks as code — themed, reusable presentations.</p><span class="stack">Vue · Bun · Astro</span></div>
+<div v-click class="fleet__card"><h3>Itenium.Forge</h3><p>MiroService Chassis and Skills Framework</p><span class="stack">.NET · React · Claude</span></div>
+<div v-click class="fleet__card"><h3>New capabilities</h3><p>Starify Links · Slack Meme Poster · TTC Aalst · …</p><span class="stack">scripts · sites · bots</span></div>
 </div>
 
-<div class="sw-subtle">A dotfiles swarm. A birthday invitation site. These presentations.</div>
+<div v-click class="sw-subtle">A dotfiles swarm. A birthday invitation site. Cocktails website. These presentations.</div>
 
 ---
 layout: default
@@ -116,7 +116,7 @@ heading: Goodbye Windows & PowerShell
 layout: end
 ---
 
-# Not shovelware. <span class="sw-pink">Leverage.</span>
+# Shovelware? <br><span class="sw-pink">Or Leverage?</span>
 
-<div class="sw-subtle sw-subtle-1">Removing entropy · adding test/lint/CI nets</div>
-<div class="sw-subtle sw-subtle-2">Exploding scopes · Low-priority work · Guilty as charged.</div>
+<div v-click class="sw-subtle sw-subtle-1">Removing entropy · adding test/lint/CI nets</div>
+<div v-click class="sw-subtle sw-subtle-2">Exploding scopes · Low-priority work · Guilty as charged.</div>

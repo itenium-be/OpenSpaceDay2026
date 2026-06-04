@@ -39,6 +39,8 @@ class: dx
 .foot{position:absolute;left:2.8rem;right:2.8rem;bottom:1.4rem;display:flex;justify-content:space-between;
   font-size:.68rem;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;}
 .blink{animation:bl 1s steps(1) infinite;}@keyframes bl{50%{opacity:0;}}
+/* nudge the page indicator (#0X / 06) down on dossier slides only */
+.wrap.dx:not(.cover):not(.manifest):not(.vote) .foot span:last-child{position:relative;top:8px;}
 .amber{color:var(--amber);}.g{color:var(--grn);}.dim{color:var(--dim);}
 
 /* cover */
@@ -62,12 +64,15 @@ class: dx
 
 /* dossier */
 .dos{flex:1;display:grid;grid-template-columns:1fr;gap:0;margin-top:.8rem;}
-.dos .top{display:grid;grid-template-columns:1fr auto;align-items:start;border-bottom:1px dashed var(--line);padding-bottom:.8rem;}
+.dos .top{position:relative;display:grid;grid-template-columns:1fr auto;align-items:start;
+  padding:.9rem 1.1rem .8rem;border:1px solid var(--line);border-radius:6px;overflow:hidden;
+  background-image:linear-gradient(90deg, rgba(4,17,10,.93) 38%, rgba(4,17,10,.5) 100%), var(--hdr, none);
+  background-size:cover;background-position:center;}
 .dos .case{font-size:.74rem;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;}
 .dos h1{font-size:2.9rem;font-weight:800;color:var(--grn);margin:.4rem 0 .1rem;line-height:1;
   text-shadow:0 0 18px rgba(39,240,138,.4);}
 .dos .auth{color:var(--ink);font-size:1.05rem;}
-.dos .id{text-align:right;font-size:.74rem;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;line-height:1.9;}
+.dos .id{text-align:right;font-size:.74rem;letter-spacing:.14em;color:var(--dim);text-transform:uppercase;line-height:1.9;text-shadow:0 0 6px rgba(0,0,0,.9);}
 .dos .id b{color:var(--amber);}
 .dos .grid{display:grid;grid-template-columns:1.35fr 1fr;gap:2rem;margin-top:1.1rem;}
 .dos .line{margin:.2rem 0;}.dos .pr{color:var(--grn);}
@@ -186,7 +191,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #01</span></div>
   <div class="dos">
-    <div class="top">
+    <div class="top" style="--hdr:url(/hdr-alignment.jpg)">
       <div>
         <div class="case">AI / ETHICS · ACQUIRED 2020</div>
         <h1>The Alignment Problem</h1>
@@ -222,7 +227,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #02</span></div>
   <div class="dos">
-    <div class="top">
+    <div class="top" style="--hdr:url(/hdr-chip-war.jpg)">
       <div>
         <div class="case">HISTORY · ACQUIRED 2022</div>
         <h1>Chip War</h1>
@@ -258,7 +263,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #03</span></div>
   <div class="dos">
-    <div class="top">
+    <div class="top" style="--hdr:url(/hdr-philosophy.jpg)">
       <div>
         <div class="case">CRAFT · ACQUIRED 2018</div>
         <h1>A Philosophy of Software Design</h1>
@@ -294,7 +299,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #04</span></div>
   <div class="dos">
-    <div class="top">
+    <div class="top" style="--hdr:url(/hdr-kill-it.jpg)">
       <div>
         <div class="case">CRAFT · ACQUIRED 2021</div>
         <h1>Kill It with Fire</h1>
@@ -330,7 +335,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #05</span></div>
   <div class="dos">
-    <div class="top">
+    <div class="top" style="--hdr:url(/hdr-cointelligence.jpg)">
       <div>
         <div class="case">AI / PRACTICE · ACQUIRED 2024</div>
         <h1>Co-Intelligence</h1>
@@ -366,7 +371,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #06</span></div>
   <div class="dos">
-    <div class="top">
+    <div class="top" style="--hdr:url(/hdr-snakeoil.jpg)">
       <div>
         <div class="case">AI / SKEPTIC · ACQUIRED 2024</div>
         <h1>AI Snake Oil</h1>
