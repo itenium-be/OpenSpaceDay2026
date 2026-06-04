@@ -73,19 +73,19 @@ heading: The heist — Modernization
 ---
 layout: default
 num: "02"
-heading: The fleet — games on the CD
+heading: The fleet
 ---
 
 <div class="fleet">
 <div class="fleet__card fleet__card--trio"><h3>Scout</h3><p>Self-hosted deep-research engine. Issue → cited research, published.</p><span class="stack">Shell · Python · Docker</span></div>
-<div class="fleet__card fleet__card--trio"><h3>Atlas</h3><p>Hosts what Scout produces.</p><span class="stack">Jekyll / HTML</span></div>
-<div class="fleet__card fleet__card--trio"><h3>Compass</h3><p>Layouts for Atlas.</p><span class="stack">HTML · CSS · JS</span></div>
-<div class="fleet__card"><h3>Meridian</h3><p>Scroll-driven memory timeline + animated travel map.</p><span class="stack">TypeScript</span></div>
+<div class="fleet__card fleet__card--trio"><h3>Atlas + Compass</h3><p>Publishes &amp; themes Scout's research — the site and its layouts.</p><span class="stack">Jekyll · HTML · CSS</span></div>
+<div class="fleet__card"><h3>Meridian</h3><p>Scroll-driven memory timeline + animated travel map.</p><span class="stack">TypeScript · React</span></div>
 <div class="fleet__card"><h3>Zombies</h3><p>Python zombie game to teach kids at CoderDojo.</p><span class="stack">Python</span></div>
-<div class="fleet__card"><h3>licenser</h3><p>Generate your license file from package.json.</p><span class="stack">Node</span></div>
+<div class="fleet__card"><h3>Slidev decks</h3><p>Talks as code — themed, reusable presentations (this one included).</p><span class="stack">Vue · Bun · Astro</span></div>
+<div class="fleet__card"><h3>Itenium.Forge</h3><p>Opinionated MiroService Chassis and Skills Framework</p><span class="stack">.NET · React · Claude</span></div>
 </div>
 
-<div class="sw-subtle"><span class="sw-cyan">Scout · Atlas · Compass</span> = a trio: engine → host → layouts. Plus a dotfiles swarm.</div>
+<div class="sw-subtle">A dotfiles swarm. A birthday invitation site.</div>
 
 ---
 layout: statement
