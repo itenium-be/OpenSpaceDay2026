@@ -172,6 +172,8 @@
   z-index: 2;
 }
 .sw-cover .sw-subtle { position: relative; z-index: 2; }
+/* lift only the title into the top of the sun (like the end slide); h2, subtitle and boot line keep their place */
+.sw-cover h1 { transform: translateY(-150px); }
 .sw-cover__tag {
   position: absolute;
   left: 0; right: 0;
@@ -232,7 +234,34 @@
   height: 100%;
   background: transparent;
 }
-.sw-end h1 { font-size: 3.2rem; }
+.sw-end h1 {
+  font-family: 'Monoton', cursive;
+  font-weight: 400;
+  font-size: 3.8rem;
+  line-height: 1.15;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(180deg, #fff 0%, #ffd6ec 30%, var(--sw-pink) 55%, var(--sw-purple) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px var(--sw-glow-pink)) drop-shadow(0 0 26px rgba(255, 46, 136, .55));
+}
+/* keep "Leverage." popping solid pink against the gradient */
+.sw-end h1 .sw-pink { -webkit-text-fill-color: var(--sw-pink); color: var(--sw-pink); }
+/* lift the title up into the yellow top of the sun (sun + prompt are absolute, unaffected) */
+.sw-end h1 { transform: translateY(-170px); }
+/* drop the two tagline lines down onto the moving grid floor, stacked */
+.sw-end .sw-subtle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+.sw-end .sw-subtle-1 { bottom: 30%; }
+.sw-end .sw-subtle-2 { bottom: 25%; }
 .sw-end__prompt {
   position: absolute;
   bottom: 6%;

@@ -16,7 +16,7 @@ layout: cover
 
 # Where Is All the Shovelware?
 
-## A confession, in 8 slides
+## A confession, in 7 slides
 
 <div class="sw-subtle">Wouter Van Schandevijl · itenium · open space day '26</div>
 
@@ -77,23 +77,15 @@ heading: The fleet
 ---
 
 <div class="fleet">
-<div class="fleet__card fleet__card--trio"><h3>Scout</h3><p>Self-hosted deep-research engine. Issue → cited research, published.</p><span class="stack">Shell · Python · Docker</span></div>
-<div class="fleet__card fleet__card--trio"><h3>Atlas + Compass</h3><p>Publishes &amp; themes Scout's research — the site and its layouts.</p><span class="stack">Jekyll · HTML · CSS</span></div>
+<div class="fleet__card"><h3>Scout → Atlas</h3><p>Self-hosted deep-research pipeline: open an issue → cited research, auto-published to a themed site.</p><span class="stack">Python · Jekyll · Docker · Shell</span></div>
 <div class="fleet__card"><h3>Meridian</h3><p>Scroll-driven memory timeline + animated travel map.</p><span class="stack">TypeScript · React</span></div>
 <div class="fleet__card"><h3>Zombies</h3><p>Python zombie game to teach kids at CoderDojo.</p><span class="stack">Python</span></div>
-<div class="fleet__card"><h3>Slidev decks</h3><p>Talks as code — themed, reusable presentations (this one included).</p><span class="stack">Vue · Bun · Astro</span></div>
+<div class="fleet__card"><h3>Slidev decks</h3><p>Talks as code — themed, reusable presentations.</p><span class="stack">Vue · Bun · Astro</span></div>
 <div class="fleet__card"><h3>Itenium.Forge</h3><p>Opinionated MiroService Chassis and Skills Framework</p><span class="stack">.NET · React · Claude</span></div>
+<div class="fleet__card"><h3>New capabilities</h3><p>Starify Links · Slack Meme Poster · TTC Aalst · …</p><span class="stack">scripts · sites · bots</span></div>
 </div>
 
-<div class="sw-subtle">A dotfiles swarm. A birthday invitation site.</div>
-
----
-layout: statement
----
-
-# Next on the disc: <span class="sw-pink">Perch</span>
-
-<div class="sw-subtle">Windows-first dotfiles. Teased… ironically.</div>
+<div class="sw-subtle">A dotfiles swarm. A birthday invitation site. These presentations.</div>
 
 ---
 layout: default
@@ -107,7 +99,7 @@ WSL-vs-Windows friction finally tipped it. Junctions, Dropbox, CRLF, PowerShell 
 - `bash-config` is **in** · `PowerShell-Config` left behind
 - Even the OS got refactored
 
-<blockquote>The irony: <strong>Perch</strong> — the Windows-first tool — is the last tie being managed on the way out.</blockquote>
+<blockquote>Ironically the current project: <span class="sw-pink"><strong>Perch</strong></span> — Windows-first dotfiles in git, symlinked into place.</blockquote>
 
 ---
 layout: end
@@ -115,4 +107,5 @@ layout: end
 
 # Not shovelware. <span class="sw-pink">Leverage.</span>
 
-<div class="sw-subtle">Removing entropy · adding test/lint/CI nets · deleting dead code. Guilty as charged.</div>
+<div class="sw-subtle sw-subtle-1">Removing entropy · adding test/lint/CI nets</div>
+<div class="sw-subtle sw-subtle-2">Exploding scopes · Low-priority work · Guilty as charged.</div>
