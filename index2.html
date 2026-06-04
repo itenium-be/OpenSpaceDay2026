@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title Animation Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:      #07070a;
+      --bg-2:    #0e0e15;
+      --red:     #ff1f3d;
+      --glow:    rgba(255,31,61,.55);
+      --cyan:    #05d9e8;
+      --pink:    #ff2e88;
+      --gold:    #ffd166;
+      --green:   #39ff14;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: #c9ccd4;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: var(--red);
+      text-shadow: 0 0 10px var(--glow);
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cell {
+      background: var(--bg-2);
+      border: 1px solid rgba(255,31,61,.18);
+      border-radius: 6px;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+      gap: 1.2rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .label {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: rgba(201,204,212,.45);
+      font-family: 'JetBrains Mono', monospace;
+      align-self: flex-start;
+      position: absolute;
+      top: .6rem;
+      left: .8rem;
+    }
+
+    /* shared title base */
+    .t {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: clamp(1rem, 2.8vw, 1.55rem);
+      line-height: 1.25;
+      text-align: center;
+      display: inline-block;
+      position: relative;
+    }
+
+    /* ─── 01 Flowing Gradient ─── */
+    .t-01 {
+      background: linear-gradient(90deg, #ff1f3d, #ff7a18, #ffd166, #ff2e88, #05d9e8, #ff1f3d);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: flow 5s linear infinite;
+    }
+    @keyframes flow { to { background-position: 300% 0; } }
+
+    /* ─── 02 Chromatic RGB Glitch ─── */
+    .t-02 { color: #f5f7ff; }
+    .t-02::before, .t-02::after {
+      content: attr(data-text);
+      position: absolute; left: 0; top: 0;
+      width: 100%;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    .t-02::before { color: var(--cyan); animation: gla 2.4s steps(2) infinite alternate; }
+    .t-02::after  { color: var(--pink); animation: glb 3.1s steps(2) infinite alternate; }
+    @keyframes gla {
+      0%,100%{ transform: translate(0,0); }
+      20%{ transform: translate(-3px,-1px) skewX(-2deg); }
+      60%{ transform: translate(2px,1px); }
+    }
+    @keyframes glb {
+      0%,100%{ transform: translate(0,0); }
+      30%{ transform: translate(3px,1px) skewX(2deg); }
+      70%{ transform: translate(-2px,-1px); }
+    }
+
+    /* ─── 03 Neon Flicker ─── */
+    .t-03 {
+      color: #fff;
+      text-shadow: 0 0 4px #fff, 0 0 12px var(--pink), 0 0 24px var(--pink), 0 0 40px var(--pink), 0 0 60px var(--cyan);
+      animation: flicker 3.5s infinite;
+    }
+    @keyframes flicker {
+      0%,19%,21%,23%,55%,57%,100%{ opacity:1; }
+      20%,22%,56%{ opacity:.45; }
+    }
+
+    /* ─── 04 Light Sweep / Shine ─── */
+    .t-04 {
+      color: var(--red);
+      text-shadow: 1px 1px 0 #7a000e, 2px 2px 0 #4a0008;
+    }
+    .t-04::after {
+      content: attr(data-text);
+      position: absolute; left:0; top:0; width:100%;
+      background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.9) 50%, transparent 70%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: shine 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes shine { 0%{ background-position:160% 0; } 60%,100%{ background-position:-60% 0; } }
+
+    /* ─── 05 Typewriter + Caret ─── */
+    .t-05-wrap {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: clamp(.9rem, 2.2vw, 1.25rem);
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid var(--green);
+      /* width animated by JS; caret always visible */
+      animation: caret .75s step-end infinite;
+    }
+    @keyframes caret { 50%{ border-color: transparent; } }
+
+    /* ─── 06 Per-Letter Stagger Reveal ─── */
+    .t-06 .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(22px);
+      animation: drop-in .4s forwards;
+    }
+
+    /* ─── 07 Wavy Bounce ─── */
+    .t-07 .char {
+      display: inline-block;
+      animation: wave .9s ease-in-out infinite alternate;
+    }
+    @keyframes wave { to { transform: translateY(-8px); } }
+
+    /* ─── 08 3D Extrude + Slow Rotate ─── */
+    .t-08 {
+      color: var(--gold);
+      transform-style: preserve-3d;
+      animation: rotate3d 6s ease-in-out infinite alternate;
+      text-shadow:
+        1px 1px 0 #a07a00,2px 2px 0 #806000,3px 3px 0 #605000,
+        4px 4px 0 #403800,5px 5px 0 #302800,6px 6px 4px rgba(0,0,0,.6);
+    }
+    @keyframes rotate3d { 0%{ transform: perspective(400px) rotateY(-18deg); } 100%{ transform: perspective(400px) rotateY(18deg); } }
+
+    /* ─── 09 Flip-In per letter ─── */
+    .t-09 .char {
+      display: inline-block;
+      animation: flip-in .6s ease forwards;
+      backface-visibility: hidden;
+    }
+    @keyframes flip-in { from{ transform: rotateX(-90deg); opacity:0; } to{ transform: rotateX(0deg); opacity:1; } }
+
+    /* ─── 10 Blur to Focus ─── */
+    .t-10 {
+      color: var(--cyan);
+      animation: defocus 3.2s ease-in-out infinite alternate;
+      text-shadow: 0 0 6px var(--cyan);
+    }
+    @keyframes defocus {
+      0%{ filter: blur(8px); opacity:.3; letter-spacing: .25em; }
+      100%{ filter: blur(0); opacity:1; letter-spacing: .06em; }
+    }
+
+    /* ─── 11 Glow Pulse / Breathing ─── */
+    .t-11 {
+      color: #fff;
+      animation: breathe 2.5s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%,100%{ text-shadow: 0 0 4px var(--red), 0 0 10px var(--red); }
+      50%{ text-shadow: 0 0 6px #fff, 0 0 18px var(--red), 0 0 40px var(--red), 0 0 70px var(--red); }
+    }
+
+    /* ─── 12 CRT Scanline + Jitter ─── */
+    .cell-12 { background: #000; }
+    .t-12 {
+      color: #33ff66;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: .12em;
+      position: relative;
+      animation: jitter 4s steps(1) infinite;
+    }
+    .t-12::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        to bottom, transparent 0, transparent 2px,
+        rgba(0,255,80,.06) 2px, rgba(0,255,80,.06) 4px
+      );
+      pointer-events: none;
+    }
+    @keyframes jitter {
+      0%,90%,100%{ transform: translate(0,0) skewX(0deg); }
+      92%{ transform: translate(-2px,0) skewX(-1deg); }
+      94%{ transform: translate(2px,0) skewX(1deg); }
+      96%{ transform: translate(-1px,0); }
+    }
+
+    /* ─── 13 Hologram Shimmer ─── */
+    .t-13 {
+      background: linear-gradient(135deg, var(--cyan) 0%, #fff 40%, var(--pink) 60%, var(--cyan) 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: holo 3s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 6px var(--cyan));
+    }
+    @keyframes holo {
+      0%{ background-position: 0% 50%; }
+      100%{ background-position: 100% 50%; }
+    }
+
+    /* ─── 14 Outline Draw (stroke then fill) ─── */
+    .t-14 {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--red);
+      text-stroke: 2px var(--red);
+      animation: draw-fill 4s ease-in-out infinite;
+    }
+    @keyframes draw-fill {
+      0%,15%{ color: transparent; -webkit-text-stroke-width: 2px; }
+      60%,85%{ color: var(--red); -webkit-text-stroke-width: 0px; text-shadow: 0 0 14px var(--glow); }
+      100%{ color: transparent; -webkit-text-stroke-width: 2px; }
+    }
+
+    /* ─── 15 Shake / Vibrate ─── */
+    .t-15 {
+      color: var(--red);
+      text-shadow: 0 0 8px var(--glow);
+      animation: shake 2.5s ease-in-out infinite;
+    }
+    @keyframes shake {
+      0%,80%,100%{ transform: translate(0,0) rotate(0deg); }
+      82%{ transform: translate(-2px,-1px) rotate(-.5deg); }
+      84%{ transform: translate(2px,1px) rotate(.5deg); }
+      86%{ transform: translate(-1px,2px) rotate(-.3deg); }
+      88%{ transform: translate(1px,-2px) rotate(.3deg); }
+      90%{ transform: translate(-2px,1px); }
+    }
+
+    /* ─── 16 Hue-Rotate Color Cycle ─── */
+    .t-16 {
+      color: var(--red);
+      text-shadow: 0 0 12px var(--red), 0 0 24px var(--red);
+      animation: huecycle 5s linear infinite;
+    }
+    @keyframes huecycle { to{ filter: hue-rotate(360deg); } }
+
+    /* ─── 17 Elastic Scale Pop ─── */
+    .t-17 {
+      color: var(--pink);
+      text-shadow: 0 0 10px var(--pink);
+      transform-origin: center;
+      animation: elastic 2.8s ease-in-out infinite;
+    }
+    @keyframes elastic {
+      0%,100%{ transform: scale(1); }
+      40%{ transform: scaleX(1.12) scaleY(.88); }
+      55%{ transform: scaleX(.92) scaleY(1.1); }
+      70%{ transform: scaleX(1.05) scaleY(.97); }
+      85%{ transform: scaleX(.98) scaleY(1.02); }
+    }
+
+    /* ─── 18 Split-Flap / Board ─── */
+    /* done with JS — spans get individual animation-delay cycling through chars */
+    .t-18 .char {
+      display: inline-block;
+      animation: flap .12s steps(1) forwards;
+    }
+    @keyframes flap {
+      0%{ opacity:0; transform: rotateX(-90deg) scaleY(.5); }
+      50%{ opacity:1; transform: rotateX(-45deg) scaleY(.75); }
+      100%{ opacity:1; transform: rotateX(0deg) scaleY(1); }
+    }
+
+    /* ─── 19 Mask Reveal (horizontal wipe) ─── */
+    .t-19 {
+      color: #fff;
+      position: relative;
+      text-shadow: 0 0 10px var(--cyan);
+      animation: reveal-clip 3s ease-in-out infinite;
+      /* clip-path animates a revealing rectangle */
+    }
+    @keyframes reveal-clip {
+      0%,5%{ clip-path: inset(0 100% 0 0); }
+      50%,55%{ clip-path: inset(0 0% 0 0); }
+      95%,100%{ clip-path: inset(0 0 0 100%); }
+    }
+
+    /* ─── 20 Depth Parallax Shadow ─── */
+    .t-20 {
+      color: #e8eaf6;
+      animation: parallax 4s ease-in-out infinite alternate;
+    }
+    @keyframes parallax {
+      0%{
+        text-shadow:
+          1px 1px 0 var(--pink), 2px 2px 0 var(--pink),
+          3px 3px 0 rgba(255,46,136,.5), 4px 4px 6px rgba(0,0,0,.7),
+          -1px -1px 0 var(--cyan);
+        transform: translate(-4px,-2px);
+      }
+      100%{
+        text-shadow:
+          -1px -1px 0 var(--pink), -2px -2px 0 var(--pink),
+          -3px -3px 0 rgba(255,46,136,.5), -4px -4px 6px rgba(0,0,0,.7),
+          1px 1px 0 var(--cyan);
+        transform: translate(4px,2px);
+      }
+    }
+
+    /* ─── 21 Fire / Flame ─── */
+    .t-21 {
+      background: linear-gradient(to top, #fff 0%, #ffd700 20%, #ff4500 50%, #cc0000 80%, #440000 100%);
+      background-size: 100% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: fire 1.2s ease-in-out infinite alternate;
+      filter: drop-shadow(0 2px 6px rgba(255,69,0,.7));
+    }
+    @keyframes fire {
+      0%{ background-position: 0% 0%; filter: drop-shadow(0 2px 6px rgba(255,69,0,.7)); }
+      100%{ background-position: 0% 60%; filter: drop-shadow(0 4px 12px rgba(255,200,0,.8)); }
+    }
+
+    /* ─── 22 Matrix Rain Characters (title stays, green rain overlay) ─── */
+    .cell-22 { overflow: hidden; }
+    .t-22-canvas {
+      position: absolute; inset: 0;
+      opacity: .25;
+      pointer-events: none;
+    }
+    .t-22 {
+      position: relative;
+      z-index: 1;
+      color: var(--green);
+      text-shadow: 0 0 8px var(--green), 0 0 20px var(--green);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ─── 23 Gradient Border Glow ─── */
+    .t-23-wrap {
+      padding: .6rem 1.2rem;
+      border-radius: 4px;
+      position: relative;
+      background: var(--bg-2);
+    }
+    .t-23-wrap::before {
+      content: '';
+      position: absolute; inset: -2px;
+      border-radius: 6px;
+      background: conic-gradient(var(--red), var(--pink), var(--cyan), var(--gold), var(--red));
+      animation: spin-border 3s linear infinite;
+      z-index: -1;
+    }
+    @keyframes spin-border { to{ transform: rotate(360deg); } }
+    .t-23 {
+      color: #fff;
+      text-shadow: 0 0 8px var(--red);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── 24 Sparkle / Twinkle ─── */
+    .t-24 {
+      color: #fff;
+      text-shadow: 0 0 6px #fff, 0 0 12px var(--gold);
+    }
+    .sparkle-star {
+      position: absolute;
+      pointer-events: none;
+      border-radius: 50%;
+      background: #fff;
+      animation: sparkle-fade 1.4s ease-out forwards;
+    }
+    @keyframes sparkle-fade {
+      0%{ opacity:1; transform: scale(1); }
+      100%{ opacity:0; transform: scale(0) translateY(-12px); }
+    }
+
+    /* ─── per-letter drop-in base (shared by 06, 09, 18) ─── */
+    @keyframes drop-in {
+      from{ opacity:0; transform: translateY(22px); }
+      to  { opacity:1; transform: translateY(0); }
+    }
+
+    /* ─── reduced-motion global calm ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .t-01 { background-position: 0% 0 !important; }
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Title Animation Playground — Pick Your Favorite</h1>
+
+<div class="grid">
+
+  <!-- 01 -->
+  <div class="cell">
+    <span class="label">01 — Flowing Gradient</span>
+    <span class="t t-01">Open Space Day @ itenium</span>
+  </div>
+
+  <!-- 02 -->
+  <div class="cell">
+    <span class="label">02 — Chromatic RGB Glitch</span>
+    <span class="t t-02" data-text="More AI Sessions?">More AI Sessions?</span>
+  </div>
+
+  <!-- 03 -->
+  <div class="cell">
+    <span class="label">03 — Neon Flicker</span>
+    <span class="t t-03">Where Is All the Shovelware?</span>
+  </div>
+
+  <!-- 04 -->
+  <div class="cell">
+    <span class="label">04 — Light Sweep Shine</span>
+    <span class="t t-04" data-text="Target Dossier — Next Read">Target Dossier — Next Read</span>
+  </div>
+
+  <!-- 05 -->
+  <div class="cell">
+    <span class="label">05 — Typewriter + Caret</span>
+    <div class="t-05-wrap" id="tw"></div>
+  </div>
+
+  <!-- 06 -->
+  <div class="cell">
+    <span class="label">06 — Per-Letter Stagger Reveal</span>
+    <span class="t t-06" data-split>Where Is All the Shovelware?</span>
+  </div>
+
+  <!-- 07 -->
+  <div class="cell">
+    <span class="label">07 — Wavy Bounce</span>
+    <span class="t t-07" data-split>Open Space Day @ itenium</span>
+  </div>
+
+  <!-- 08 -->
+  <div class="cell">
+    <span class="label">08 — 3D Extrude + Rotate</span>
+    <span class="t t-08">More AI Sessions?</span>
+  </div>
+
+  <!-- 09 -->
+  <div class="cell">
+    <span class="label">09 — Flip-In Letters</span>
+    <span class="t t-09" data-split>Target Dossier — Next Read</span>
+  </div>
+
+  <!-- 10 -->
+  <div class="cell">
+    <span class="label">10 — Blur to Focus</span>
+    <span class="t t-10">Open Space Day @ itenium</span>
+  </div>
+
+  <!-- 11 -->
+  <div class="cell">
+    <span class="label">11 — Glow Pulse / Breathing</span>
+    <span class="t t-11">More AI Sessions?</span>
+  </div>
+
+  <!-- 12 -->
+  <div class="cell cell-12">
+    <span class="label">12 — CRT Scanline + Jitter</span>
+    <span class="t t-12">Where Is All the Shovelware?</span>
+  </div>
+
+  <!-- 13 -->
+  <div class="cell">
+    <span class="label">13 — Hologram Shimmer</span>
+    <span class="t t-13">Target Dossier — Next Read</span>
+  </div>
+
+  <!-- 14 -->
+  <div class="cell">
+    <span class="label">14 — Outline Draw then Fill</span>
+    <span class="t t-14">Open Space Day @ itenium</span>
+  </div>
+
+  <!-- 15 -->
+  <div class="cell">
+    <span class="label">15 — Shake / Vibrate</span>
+    <span class="t t-15">More AI Sessions?</span>
+  </div>
+
+  <!-- 16 -->
+  <div class="cell">
+    <span class="label">16 — Hue-Rotate Color Cycle</span>
+    <span class="t t-16">Where Is All the Shovelware?</span>
+  </div>
+
+  <!-- 17 -->
+  <div class="cell">
+    <span class="label">17 — Elastic Scale Pop</span>
+    <span class="t t-17">Target Dossier — Next Read</span>
+  </div>
+
+  <!-- 18 -->
+  <div class="cell">
+    <span class="label">18 — Split-Flap Board</span>
+    <span class="t t-18" data-split>Open Space Day @ itenium</span>
+  </div>
+
+  <!-- 19 -->
+  <div class="cell">
+    <span class="label">19 — Mask Wipe Reveal</span>
+    <span class="t t-19">More AI Sessions?</span>
+  </div>
+
+  <!-- 20 -->
+  <div class="cell">
+    <span class="label">20 — Depth Parallax Shadow</span>
+    <span class="t t-20">Where Is All the Shovelware?</span>
+  </div>
+
+  <!-- 21 -->
+  <div class="cell">
+    <span class="label">21 — Fire / Flame</span>
+    <span class="t t-21">Target Dossier — Next Read</span>
+  </div>
+
+  <!-- 22 -->
+  <div class="cell cell-22">
+    <span class="label">22 — Matrix Rain Fill</span>
+    <canvas class="t-22-canvas" id="matrix-canvas"></canvas>
+    <span class="t t-22">Open Space Day @ itenium</span>
+  </div>
+
+  <!-- 23 -->
+  <div class="cell">
+    <span class="label">23 — Gradient Border Glow</span>
+    <div class="t-23-wrap">
+      <span class="t t-23">More AI Sessions?</span>
+    </div>
+  </div>
+
+  <!-- 24 -->
+  <div class="cell" id="sparkle-cell">
+    <span class="label">24 — Sparkle / Twinkle</span>
+    <span class="t t-24" id="sparkle-title">Where Is All the Shovelware?</span>
+  </div>
+
+</div>
+
+<script>
+/* ── 05 Typewriter ── */
+(function(){
+  const titles = [
+    'Open Space Day @ itenium',
+    'More AI Sessions?',
+    'Where Is All the Shovelware?',
+    'Target Dossier — Next Read'
+  ];
+  const el = document.getElementById('tw');
+  let ti = 0, ci = 0, deleting = false;
+  function tick() {
+    const str = titles[ti];
+    if (!deleting) {
+      el.textContent = str.slice(0, ++ci);
+      if (ci === str.length) { deleting = true; setTimeout(tick, 1800); return; }
+    } else {
+      el.textContent = str.slice(0, --ci);
+      if (ci === 0) { deleting = false; ti = (ti + 1) % titles.length; setTimeout(tick, 400); return; }
+    }
+    setTimeout(tick, deleting ? 40 : 70);
+  }
+  tick();
+})();
+
+/* ── Per-letter span splitter (effects 06, 07, 09, 18) ── */
+(function(){
+  document.querySelectorAll('[data-split]').forEach(el => {
+    const cls = el.className.match(/t-(\d+)/)?.[0];
+    const text = el.textContent;
+    el.textContent = '';
+    [...text].forEach((ch, i) => {
+      const s = document.createElement('span');
+      s.className = 'char';
+      s.textContent = ch === ' ' ? ' ' : ch;
+
+      if (cls === 't-06') {
+        /* stagger reveal — replay every ~4s */
+        s.style.animationDelay = `${i * 50}ms`;
+        s.style.animationIterationCount = 'infinite';
+        s.style.animationDuration = '.4s';
+        s.style.animationTimingFunction = 'ease';
+        s.style.animationName = 'drop-in';
+        const period = (text.length * 50 + 3000);
+        s.style.animationDelay = `${(i * 50) % period}ms`;
+      }
+      if (cls === 't-07') {
+        /* wave — each letter offset */
+        s.style.animationDelay = `${i * 60}ms`;
+      }
+      if (cls === 't-09') {
+        /* flip-in — one-shot then loop after gap */
+        s.style.animationDelay = `${i * 70}ms`;
+        s.style.animationIterationCount = 'infinite';
+        s.style.animationDuration = '.6s';
+        s.style.animationName = 'flip-in';
+        const period2 = (text.length * 70 + 2500);
+        s.style.animationDelay = `${(i * 70) % period2}ms`;
+      }
+      if (cls === 't-18') {
+        /* split-flap — stagger + loop */
+        s.style.animationDelay = `${i * 80}ms`;
+        s.style.animationIterationCount = 'infinite';
+        s.style.animationDuration = '.6s';
+        s.style.animationName = 'flap';
+        const period3 = (text.length * 80 + 2000);
+        s.style.animationDelay = `${(i * 80) % period3}ms`;
+      }
+      el.appendChild(s);
+    });
+  });
+})();
+
+/* ── 22 Matrix Rain ── */
+(function(){
+  const canvas = document.getElementById('matrix-canvas');
+  const cell = canvas.parentElement;
+  function resize() {
+    canvas.width  = cell.clientWidth;
+    canvas.height = cell.clientHeight;
+  }
+  resize();
+  new ResizeObserver(resize).observe(cell);
+
+  const ctx = canvas.getContext('2d');
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+  const fontSize = 12;
+  let cols, drops;
+  function init() {
+    cols = Math.floor(canvas.width / fontSize);
+    drops = Array(cols).fill(1);
+  }
+  init();
+  new ResizeObserver(init).observe(cell);
+
+  setInterval(() => {
+    ctx.fillStyle = 'rgba(0,0,0,.18)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#39ff14';
+    ctx.font = fontSize + 'px monospace';
+    drops.forEach((y, i) => {
+      ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fontSize, y * fontSize);
+      if (y * fontSize > canvas.height && Math.random() > .97) drops[i] = 0;
+      drops[i]++;
+    });
+  }, 45);
+})();
+
+/* ── 24 Sparkle ── */
+(function(){
+  const cell = document.getElementById('sparkle-cell');
+  const title = document.getElementById('sparkle-title');
+  function spawnSparkle() {
+    const rect = title.getBoundingClientRect();
+    const cRect = cell.getBoundingClientRect();
+    const s = document.createElement('span');
+    s.className = 'sparkle-star';
+    const size = 3 + Math.random() * 5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${rect.left - cRect.left + Math.random() * rect.width}px;
+      top:${rect.top - cRect.top + Math.random() * rect.height}px;
+      box-shadow: 0 0 ${size*2}px #ffd700;
+      background: ${Math.random() > .5 ? '#fff' : '#ffd700'};
+    `;
+    cell.appendChild(s);
+    setTimeout(() => s.remove(), 1400);
+  }
+  setInterval(spawnSparkle, 180);
+})();
+</script>
+
+</body>
+</html>
