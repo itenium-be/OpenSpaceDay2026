@@ -3,13 +3,12 @@
 
 .skin-arcade.os-cover h1 { font-family: 'Press Start 2P', monospace; font-size: 2.1rem; line-height: 1.5; }
 .skin-arcade .os-grid-head h2 { font-family: 'Press Start 2P', monospace; font-size: 1.2rem; }
-.skin-arcade :is(.os-intro h2, .os-end h2) { font-family: 'Press Start 2P', monospace; font-size: 1.6rem; line-height: 1.5; }
+.skin-arcade.os-intro h2, .skin-arcade.os-end h2 { font-family: 'Press Start 2P', monospace; font-size: 1.6rem; line-height: 1.5; }
 
 .skin-arcade .os-card {
   background: #fff;
   border: 3px solid #1f2430;
   border-radius: 14px;
-  border-top: 3px solid #1f2430;
   box-shadow: 5px 5px 0 var(--os-cat);
   padding: 1rem;
 }
