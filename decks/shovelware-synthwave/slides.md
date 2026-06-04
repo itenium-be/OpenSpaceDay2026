@@ -93,13 +93,21 @@ num: "03"
 heading: Goodbye Windows & PowerShell
 ---
 
-WSL-vs-Windows friction finally tipped it. Junctions, Dropbox, CRLF, PowerShell — daily papercuts.
+<v-clicks>
 
-- The whole workflow moved to **WSL / bash**
-- `bash-config` is **in** · `PowerShell-Config` left behind
-- Even the OS got refactored
+- Claude loves Bash
+- So the whole workflow moved to **WSL / bash**
+- WSL-vs-Windows friction finally tipped it.
+  - Junctions, Dropbox, CRLF, PowerShell — daily papercuts.
+- 2026 is the year I'm moving to Debian
 
-<blockquote>Ironically the current project: <span class="sw-pink"><strong>Perch</strong></span> — Windows-first dotfiles in git, symlinked into place.</blockquote>
+</v-clicks>
+
+<v-click>
+
+<blockquote>Ironically the current project is <span class="sw-pink"><strong>Perch</strong></span> — Windows-first dotfiles</blockquote>
+
+</v-click>
 
 ---
 layout: end
