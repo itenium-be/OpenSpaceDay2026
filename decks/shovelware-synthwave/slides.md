@@ -93,19 +93,22 @@ num: "03"
 heading: Goodbye Windows & PowerShell
 ---
 
+<div class="exitwin">
+<div class="exitwin__bar"><i class="d d--r"/><i class="d d--y"/><i class="d d--g"/><span>wouter@windows: ~/$ sudo rm -rf /windows</span></div>
+
 <v-clicks>
 
-- Claude loves Bash
-- So the whole workflow moved to **WSL / bash**
-- WSL-vs-Windows friction finally tipped it.
-  - Junctions, Dropbox, CRLF, PowerShell — daily papercuts.
-- 2026 is the year I'm moving to Debian
+<div class="exitwin__row"><span class="pr">&gt;</span> Claude loves Bash</div>
+<div class="exitwin__row"><span class="pr">&gt;</span> So the whole workflow moved to <strong>WSL / bash</strong></div>
+<div class="exitwin__row"><span class="pr">&gt;</span> WSL-vs-Windows friction finally tipped it.<span class="sub">Junctions · Dropbox · CRLF · PowerShell — daily papercuts</span></div>
+<div class="exitwin__row exitwin__row--final"><span class="pr">&gt;</span> 2026 is the year I'm moving to <strong class="sw-pink">Debian</strong><span class="blink">█</span></div>
 
 </v-clicks>
+</div>
 
 <v-click>
 
-<blockquote>Ironically the current project is <span class="sw-pink"><strong>Perch</strong></span> — Windows-first dotfiles</blockquote>
+<div class="irony"><span class="irony__tag">⚠ irony</span><span>the current project is <strong class="sw-pink">Perch</strong> — Windows-first dotfiles</span></div>
 
 </v-click>
 

@@ -277,3 +277,78 @@
 
 /* Slidev's "go to slide" (g) dropdown renders always-visible here — hide it */
 .autocomplete-list { display: none !important; }
+
+/* ===== slide 03: "exit Windows" neon terminal ===== */
+.exitwin {
+  margin-top: 1.1rem;
+  border: 1px solid rgba(5, 217, 232, .5);
+  border-radius: 9px;
+  background: linear-gradient(180deg, rgba(11, 4, 32, .85), rgba(26, 9, 56, .72));
+  box-shadow: 0 0 26px rgba(5, 217, 232, .22), 0 0 60px rgba(119, 0, 255, .18), inset 0 0 34px rgba(119, 0, 255, .14);
+  font-family: 'JetBrains Mono', monospace;
+  overflow: hidden;
+}
+.exitwin__bar {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .5rem .85rem;
+  background: rgba(255, 255, 255, .04);
+  border-bottom: 1px solid rgba(5, 217, 232, .28);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: var(--sw-dim);
+}
+.exitwin__bar .d { width: 10px; height: 10px; border-radius: 50%; }
+.exitwin__bar .d--r { background: #ff5f57; box-shadow: 0 0 8px #ff5f57; }
+.exitwin__bar .d--y { background: #febc2e; box-shadow: 0 0 8px #febc2e; }
+.exitwin__bar .d--g { background: #28c840; box-shadow: 0 0 8px #28c840; }
+.exitwin__bar span { margin-left: .5rem; opacity: .8; }
+.exitwin__row {
+  padding: .55rem .95rem;
+  font-size: 1.12rem;
+  line-height: 1.4;
+  color: var(--sw-text);
+  border-bottom: 1px dashed rgba(5, 217, 232, .12);
+}
+.exitwin__row:last-child { border-bottom: 0; }
+.exitwin__row .pr {
+  color: var(--sw-cyan);
+  font-weight: 700;
+  margin-right: .55rem;
+  text-shadow: 0 0 10px var(--sw-glow-cyan);
+}
+.exitwin__row .sub {
+  display: block;
+  margin: .25rem 0 0 1.7rem;
+  font-size: .82rem;
+  color: var(--sw-dim);
+}
+.exitwin__row--final { font-size: 1.32rem; color: #fff; }
+.exitwin__row--final strong { font-size: 1.05em; text-shadow: 0 0 14px var(--sw-glow-pink); }
+.exitwin .blink { color: var(--sw-pink); margin-left: .25rem; animation: sw-blink 1.05s steps(1) infinite; }
+
+/* the "irony" callout — a glowing console warning, readable on the grid */
+.irony {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: 1.5rem;
+  padding: .75rem 1.15rem;
+  border: 1px solid rgba(255, 46, 136, .55);
+  border-left: 4px solid var(--sw-pink);
+  border-radius: 9px;
+  background: linear-gradient(90deg, rgba(255, 46, 136, .18), rgba(255, 46, 136, .04));
+  box-shadow: 0 0 26px rgba(255, 46, 136, .3);
+  color: #fff;
+  font-size: 1.2rem;
+}
+.irony__tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .74rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--sw-pink);
+  text-shadow: 0 0 12px var(--sw-glow-pink);
+  white-space: nowrap;
+}
