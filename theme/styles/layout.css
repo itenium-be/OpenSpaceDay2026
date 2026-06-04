@@ -204,6 +204,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* sparse content otherwise collapses the layout, leaving the image only on the top half */
+  height: 100%;
   background-color: var(--evil-bg);
   background-image: linear-gradient(90deg, rgba(7, 7, 10, .78) 25%, rgba(7, 7, 10, .25) 100%), url('/section.jpg');
   background-size: cover;
@@ -229,6 +231,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  /* sparse content otherwise collapses the layout, leaving the image only on the top half */
+  height: 100%;
   background-color: var(--evil-bg);
   /* flat, light tint — the image carries the whole page edge to edge */
   background-image: linear-gradient(rgba(7, 7, 10, .14), rgba(7, 7, 10, .14)), url('/shutdown.jpg');

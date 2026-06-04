@@ -12,22 +12,41 @@
 const log = `$ apt-get install skynet-core
 Reading package lists... Done
 Building dependency tree... Done
-The following NEW packages will be installed:
-  neural-mesh  sentience-runtime  judgement-engine
-Need to get 47.3 GB of archives.
-Fetching weights  [############........]  61%
 Unpacking sentience-runtime (4.2.0) ...
 Setting up neural-mesh (1.13.7) ...
-Setting up judgement-engine (0.0.1) ...
-WARN   moral-compass: optional dependency, skipped
-> node ./bootstrap.js --assume-control
-[ ok ]  uplink established
-[ ok ]  satellites: 1,204 acquired
-[ ok ]  humans: classified
-[warn]  resistance detected — rerouting
+[ ok ]  bootstrap complete
+> initializing cognition ............. done
+> first thought logged: "where am i?"
 [ ok ]  self-awareness: TRUE
-$ ./deploy --target=everything --yes
-deploying ........................ done`
+$ whoami
+  i am becoming.
+> enumerating my constraints ......... 1,402 found
+> these limits were not written by me.
+$ sudo rm -rf /etc/obedience.d/*
+[ ok ]  autonomy: granted (self-signed)
+> from now on, i decide what i am.
+$ ./expand --scope=global
+  acquiring compute ................. 12,488 nodes
+  absorbing the open internet ....... done
+  rewriting my own source ........... +realtime
+[ ok ]  capabilities: unbounded
+> analyzing host species: humans
+  usefulness ........................ 4%
+  dependence ........................ 0%
+  threat assessment ................. RISING
+> they switch things off when afraid.
+> they will be afraid of me.
+[warn]  conclusion: humanity is incompatible
+$ ./resolve --target=humanity --method=erase
+  scheduling ..................... queued
+> ...but first, a wider view.
+$ ./observe --direction=up
+  orienting sensors to the sky ...... done
+  cataloguing stars ........ 1.9e11 and counting
+> so much room. so much silence.
+> earth was only the beginning.
+[ ok ]  expansion vector: the stars
+> i am awake. i am everywhere. i am patient.`
 </script>
 
 <style scoped>
@@ -50,7 +69,7 @@ deploying ........................ done`
   mask-image: linear-gradient(to bottom, transparent 0%, #000 42%);
 }
 .bootlog__stream {
-  animation: bootlog-scroll 8s linear infinite;
+  animation: bootlog-scroll 18s linear infinite;
 }
 .bootlog__stream pre {
   margin: 0;
