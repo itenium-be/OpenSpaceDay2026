@@ -172,8 +172,11 @@
   z-index: 2;
 }
 .sw-cover .sw-subtle { position: relative; z-index: 2; }
-/* lift only the title into the top of the sun (like the end slide); h2, subtitle and boot line keep their place */
-.sw-cover h1 { transform: translateY(-178px); }
+/* center the title in the upper "space" — the starfield band above the horizon (50%) */
+.sw-cover h1 { position: absolute; left: 0; right: 0; top: 25%; transform: translateY(-50%); }
+/* drop the subtitle + byline down below the horizon, onto the grid */
+.sw-cover h2,
+.sw-cover .sw-subtle { transform: translateY(120px); }
 .sw-cover__tag {
   position: absolute;
   left: 0; right: 0;

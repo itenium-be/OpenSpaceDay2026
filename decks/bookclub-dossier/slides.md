@@ -79,9 +79,8 @@ class: dx
   background:var(--panel);border:1px solid var(--line);border-radius:6px;box-shadow:0 0 18px rgba(39,240,138,.12);}
 .dos .vid img{display:block;width:100%;border-radius:3px;
   filter:grayscale(.35) sepia(1) hue-rotate(70deg) saturate(2.2) brightness(.82) contrast(1.18);}
-.dos .vid::after{content:"";position:absolute;left:.45rem;right:.45rem;top:.45rem;bottom:1.7rem;border-radius:3px;
+.dos .vid::after{content:"";position:absolute;inset:.45rem;border-radius:3px;
   pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.32) 2px 3px);mix-blend-mode:multiply;}
-.dos .vid figcaption{margin-top:.4rem;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);text-align:center;}
 .dos .threat .t{font-size:.72rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;margin-bottom:.5rem;}
 .dos .gauge{display:flex;justify-content:space-between;align-items:center;margin:.45rem 0;font-size:.82rem;
   letter-spacing:.08em;text-transform:uppercase;color:var(--dim);}
@@ -129,6 +128,21 @@ class: dx
 .cover .sub{opacity:0;animation:rise .5s ease forwards;animation-delay:2.1s;}
 .cover .ln{opacity:0;animation:rise .5s ease forwards;animation-delay:2.35s;}
 @keyframes rise{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+
+/* dossier slides 3–8 — staggered entrance, replays on each slide enter */
+.dos .quote{animation:rise .7s ease both;animation-delay:.4s;}
+.dos .desc{animation:rise .7s ease both;animation-delay:2.6s;}
+.dos .for{animation:rise .7s ease both;animation-delay:4.8s;}
+.dos .threat{animation:rise .7s ease both;animation-delay:7s;}
+.dos .gauge b{clip-path:inset(0 100% 0 0);animation:wipe .7s ease forwards;}
+.dos .gauge:nth-child(2) b{animation-delay:7.6s;}
+.dos .gauge:nth-child(3) b{animation-delay:8.2s;}
+.dos .gauge:nth-child(4) b{animation-delay:8.8s;}
+.dos .vid{clip-path:inset(0 0 100% 0);animation:scan .9s ease forwards;animation-delay:9.6s;}
+@keyframes scan{to{clip-path:inset(0 0 0 0);}}
+@media (prefers-reduced-motion:reduce){
+  .dos .quote,.dos .desc,.dos .for,.dos .threat,.dos .gauge b,.dos .vid{animation:none;clip-path:none;}
+}
 </style>
 
 <div class="wrap cover dx">
@@ -178,7 +192,7 @@ class: dx
         <h1>The Alignment Problem</h1>
         <div class="auth">subject: Brian Christian</div>
       </div>
-      <div class="id">ID <b>#01</b><br/>PAGES <b>476</b><br/>EST <b>~4 wks</b></div>
+      <div class="id">ID <b>#01</b><br/>PAGES <b>476</b></div>
     </div>
     <div class="grid">
       <div>
@@ -214,7 +228,7 @@ class: dx
         <h1>Chip War</h1>
         <div class="auth">subject: Chris Miller</div>
       </div>
-      <div class="id">ID <b>#02</b><br/>PAGES <b>464</b><br/>EST <b>~4 wks</b></div>
+      <div class="id">ID <b>#02</b><br/>PAGES <b>464</b></div>
     </div>
     <div class="grid">
       <div>
@@ -250,7 +264,7 @@ class: dx
         <h1>A Philosophy of Software Design</h1>
         <div class="auth">subject: John Ousterhout</div>
       </div>
-      <div class="id">ID <b>#03</b><br/>PAGES <b>190</b><br/>EST <b>~2 wks</b></div>
+      <div class="id">ID <b>#03</b><br/>PAGES <b>190</b></div>
     </div>
     <div class="grid">
       <div>
@@ -286,7 +300,7 @@ class: dx
         <h1>Kill It with Fire</h1>
         <div class="auth">subject: Marianne Bellotti</div>
       </div>
-      <div class="id">ID <b>#04</b><br/>PAGES <b>248</b><br/>EST <b>~2 wks</b></div>
+      <div class="id">ID <b>#04</b><br/>PAGES <b>248</b></div>
     </div>
     <div class="grid">
       <div>
@@ -322,7 +336,7 @@ class: dx
         <h1>Co-Intelligence</h1>
         <div class="auth">subject: Ethan Mollick</div>
       </div>
-      <div class="id">ID <b>#05</b><br/>PAGES <b>256</b><br/>EST <b>~2 wks</b></div>
+      <div class="id">ID <b>#05</b><br/>PAGES <b>256</b></div>
     </div>
     <div class="grid">
       <div>
@@ -358,7 +372,7 @@ class: dx
         <h1>AI Snake Oil</h1>
         <div class="auth">subject: Narayanan &amp; Kapoor</div>
       </div>
-      <div class="id">ID <b>#06</b><br/>PAGES <b>360</b><br/>EST <b>~3 wks</b></div>
+      <div class="id">ID <b>#06</b><br/>PAGES <b>360</b></div>
     </div>
     <div class="grid">
       <div>

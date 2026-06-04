@@ -1,8 +1,5 @@
 <template>
   <div class="slidev-layout sw-cover">
-    <!-- sun is cover-only; the grid floor comes from global-top on every slide -->
-    <div class="sw-cover__sun" aria-hidden="true"><div class="sw-cover__sun-slits" /></div>
-
     <!-- Kung Fury / Hackerman tribute: leather jacket, jeans, red high-tops,
          headband + shades, fists up — warping up the grid into the past. Faces left (his travel direction). -->
     <div class="hack" aria-hidden="true">
