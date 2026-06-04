@@ -5,6 +5,11 @@ defineProps({ banner: String })
 <template>
   <div class="slidev-layout evil-default">
     <div class="evil-term">
+      <div
+        v-if="banner"
+        class="evil-term__banner"
+        :style="{ backgroundImage: `url('/${banner}.jpg')` }"
+      />
       <div class="evil-term__bar">
         <span class="evil-term__dot" />
         <span class="evil-term__dot" />
@@ -14,11 +19,6 @@ defineProps({ banner: String })
       <div class="evil-term__body">
         <slot />
       </div>
-      <div
-        v-if="banner"
-        class="evil-term__banner"
-        :style="{ backgroundImage: `url('/${banner}.jpg')` }"
-      />
     </div>
   </div>
 </template>

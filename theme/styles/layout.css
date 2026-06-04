@@ -121,7 +121,24 @@
   background-size: cover;
   background-position: center;
 }
-.evil-cover h1 { font-size: 4.2rem; line-height: 1.04; margin: 0; }
+.evil-cover h1 {
+  font-size: 4.2rem;
+  line-height: 1.04;
+  margin: 0;
+  /* animated gradient sheen sweeping across the letters */
+  background: linear-gradient(100deg, #8c0016 0%, #ff1f3d 25%, #ff7a4d 44%, #ffffff 50%, #ff7a4d 56%, #ff1f3d 75%, #8c0016 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 0 14px rgba(255, 31, 61, .55));
+  animation: evil-sheen 5s linear infinite;
+}
+@keyframes evil-sheen {
+  to { background-position: 220% center; }
+}
 .evil-cover h2 { margin-top: .6rem; color: var(--evil-text); }
 .evil-cover .hal-eye {
   position: absolute;
@@ -130,8 +147,7 @@
   transform: scale(.6);
   transform-origin: top right;
 }
-.evil-cover::after {
-  content: '> establishing uplink\2588';
+.evil-cover__boot {
   position: absolute;
   left: 3rem;
   bottom: 6%;
@@ -169,12 +185,12 @@
 .evil-term__title { margin-left: .6rem; color: var(--evil-dim); font-size: .78rem; letter-spacing: .08em; }
 .evil-term__body { padding: 1.3rem 1.9rem; overflow: auto; flex: 1; }
 .evil-term__banner {
-  flex: 0 0 30%;
+  flex: 0 0 42%;
   background-size: cover;
   background-position: center;
-  border-top: 1px solid var(--evil-line);
-  /* fade the image into the terminal so the text above never collides */
-  box-shadow: inset 0 22px 28px -14px rgba(8, 8, 12, .95);
+  border-bottom: 1px solid var(--evil-line);
+  /* fade the image down into the bar/text below so nothing collides */
+  box-shadow: inset 0 -22px 28px -14px rgba(8, 8, 12, .95);
 }
 .evil-term__body h1 { font-size: 2rem; margin: 0 0 .1em; }
 .evil-term__body h2 { color: var(--evil-green); font-size: 1.15rem; letter-spacing: .06em; margin: .1em 0 .5em; }
@@ -185,7 +201,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: var(--evil-bg);
-  background-image: linear-gradient(90deg, rgba(7, 7, 10, .92) 40%, rgba(7, 7, 10, .5) 100%), url('/section.jpg');
+  background-image: linear-gradient(90deg, rgba(7, 7, 10, .78) 25%, rgba(7, 7, 10, .25) 100%), url('/section.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -210,12 +226,23 @@
   align-items: center;
   text-align: center;
   background-color: var(--evil-bg);
-  background-image: radial-gradient(circle at 50% 50%, rgba(7, 7, 10, .55), rgba(7, 7, 10, .95) 100%), url('/shutdown.jpg');
+  /* flat, light tint — the image carries the whole page edge to edge */
+  background-image: linear-gradient(rgba(7, 7, 10, .14), rgba(7, 7, 10, .14)), url('/shutdown.jpg');
   background-size: cover;
   background-position: center;
 }
-.evil-end h1 { font-size: 3.2rem; }
-.evil-end__prompt { margin-top: 2rem; font-size: 1.5rem; color: var(--evil-text); letter-spacing: .1em; }
+.evil-end h1 { font-size: 3.2rem; text-shadow: 0 0 8px var(--evil-glow), 0 2px 14px rgba(0, 0, 0, .9); }
+.evil-end .evil-subtle { text-shadow: 0 1px 10px rgba(0, 0, 0, .95); }
+.evil-end__prompt {
+  position: absolute;
+  bottom: 6%;
+  left: 0;
+  right: 0;
+  font-size: 1.5rem;
+  color: var(--evil-text);
+  letter-spacing: .1em;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, .95);
+}
 
 /* Slidev's "go to slide" (g) dropdown renders always-visible here — hide it */
 .autocomplete-list { display: none !important; }
