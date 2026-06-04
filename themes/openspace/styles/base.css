@@ -70,3 +70,6 @@
 .os-rules { display: grid; gap: 1.4rem; margin-top: .5rem; }
 .os-rules h3 { font-size: 1.5rem; margin: 0 0 .3rem; color: var(--os-cat); }
 .os-rules p, .os-rules li { font-size: 1.2rem; }
+
+/* kill the Slidev autocomplete popup (default theme lacks this; our themes hide it) */
+.autocomplete-list { display: none !important; }
