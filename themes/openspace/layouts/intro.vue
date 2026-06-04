@@ -1,15 +1,5 @@
 <template>
-  <div class="slidev-layout os-intro" :class="skinClass">
+  <div class="slidev-layout os-intro" :class="$slidev.configs.themeConfig?.skin ? 'skin-' + $slidev.configs.themeConfig.skin : ''">
     <slot />
   </div>
 </template>
-
-<script setup>
-import { computed } from 'vue'
-import { useSlidevContext } from '@slidev/client'
-const { $slidev } = useSlidevContext()
-const skinClass = computed(() => {
-  const skin = $slidev?.configs?.themeConfig?.skin
-  return skin ? `skin-${skin}` : ''
-})
-</script>

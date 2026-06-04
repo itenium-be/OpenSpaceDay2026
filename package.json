@@ -6,7 +6,11 @@
     "build": "slidev build decks/more-ai-sessions/slides.md",
     "export": "slidev export decks/more-ai-sessions/slides.md --format pdf",
     "shovelware": "slidev decks/shovelware-synthwave/slides.md --open",
-    "dossier": "slidev decks/bookclub-dossier/slides.md --open"
+    "dossier": "slidev decks/bookclub-dossier/slides.md --open",
+    "open-space:sticky": "slidev decks/open-space/sticky.md --open",
+    "open-space:arcade": "slidev decks/open-space/arcade.md --open",
+    "open-space:doodle": "slidev decks/open-space/doodle.md --open",
+    "build-all": "bun run scripts/build-all.mjs"
   },
   "dependencies": {
     "@slidev/cli": "^51.0.0",
