@@ -92,10 +92,12 @@
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
 
-    a.card:hover {
+    a.card:hover,
+    a.card:focus-visible {
       transform: translateY(-4px);
       box-shadow: 0 8px 32px var(--glow), 0 0 0 1px var(--red);
       border-color: var(--red);
+      outline: none;
     }
 
     /* dimmed / disabled card */
@@ -269,7 +271,6 @@
       <div class="card__cover" style="background:#0a0a10;"></div>
       <div class="card__body">
         <div class="card__title">???</div>
-        <p class="card__desc">&nbsp;</p>
         <span class="card__badge">Coming soon</span>
       </div>
     </div>
