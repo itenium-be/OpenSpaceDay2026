@@ -4,8 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Itenium Open Space Day</title>
-  <!-- Inline SVG favicon: HAL-style glowing red eye — no asset to ship, base-path independent -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%2307070a'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='9'%20fill='%23ff1f3d'%20opacity='.35'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='6'%20fill='%23ff1f3d'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='2'%20fill='%2307070a'/%3E%3C/svg%3E">
+  <!-- Inline SVG favicon: glowing red eye on transparent bg — no asset to ship, base-path independent -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Ccircle%20cx='16'%20cy='16'%20r='12'%20fill='%23ff1f3d'%20opacity='.3'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='8'%20fill='%23ff1f3d'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='3'%20fill='%2307070a'/%3E%3C/svg%3E">
+
+  <meta name="description" content="Itenium Open Space Day — AI-track session decks: pitch sessions, a shovelware confession, a bookclub dossier, and 27 conversation starters.">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Itenium Open Space Day">
+  <meta property="og:description" content="AI-track session decks for Itenium's open space day.">
+  <meta property="og:url" content="https://itenium-be.github.io/OpenSpaceDay2026/">
+  <meta property="og:image" content="https://itenium-be.github.io/OpenSpaceDay2026/open-space/cover.png">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="864">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Itenium Open Space Day">
+  <meta name="twitter:description" content="AI-track session decks for Itenium's open space day.">
+  <meta name="twitter:image" content="https://itenium-be.github.io/OpenSpaceDay2026/open-space/cover.png">
+
   <style>
     :root {
       --bg:        #07070a;
@@ -113,6 +129,91 @@
       line-height: 1.2;
     }
 
+    /* ── four different title treatments — pick one ── */
+    .t { position: relative; display: inline-block; }
+
+    /* 1 — flowing gradient */
+    .t--gradient {
+      background: linear-gradient(90deg, #ff1f3d, #ff7a18, #ffd166, #ff2e88, #ff1f3d);
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      text-shadow: none;
+      animation: t-gradient 6s linear infinite;
+    }
+    @keyframes t-gradient { to { background-position: 300% 0; } }
+
+    /* 2 — chromatic glitch (two offset colour copies jittering) */
+    .t--glitch { color: #f5f7ff; text-shadow: none; }
+    .t--glitch::before, .t--glitch::after {
+      content: attr(data-text);
+      position: absolute; left: 0; top: 0;
+      width: 100%;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    .t--glitch::before { color: #05d9e8; animation: t-glitch-a 2.4s steps(2) infinite alternate; }
+    .t--glitch::after  { color: #ff2e88; animation: t-glitch-b 3.1s steps(2) infinite alternate; }
+    @keyframes t-glitch-a {
+      0%,100% { transform: translate(0, 0); }
+      20% { transform: translate(-2px, -1px); }
+      40% { transform: translate(2px, 1px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+    }
+    @keyframes t-glitch-b {
+      0%,100% { transform: translate(0, 0); }
+      25% { transform: translate(2px, 1px); }
+      50% { transform: translate(-2px, -1px); }
+      75% { transform: translate(1px, 1px); }
+    }
+
+    /* 3 — neon flicker (synthwave) */
+    .t--neon {
+      color: #fff;
+      text-shadow:
+        0 0 4px #fff,
+        0 0 10px var(--sw-pink),
+        0 0 20px var(--sw-pink),
+        0 0 36px var(--sw-pink),
+        0 0 52px var(--sw-cyan);
+      animation: t-neon 3.2s infinite;
+    }
+    @keyframes t-neon {
+      0%,19%,21%,23%,55%,57%,100% { opacity: 1; }
+      20%,22%,56% { opacity: .55; }
+    }
+
+    /* 4 — light sweep over extruded 3D text */
+    .t--shine {
+      color: var(--red);
+      text-shadow: 1px 1px 0 #8a0016, 2px 2px 0 #5e000f, 0 4px 10px rgba(0, 0, 0, .55);
+    }
+    .t--shine::after {
+      content: attr(data-text);
+      position: absolute; left: 0; top: 0;
+      width: 100%;
+      background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, .92) 50%, transparent 65%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: t-shine 3.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes t-shine {
+      0% { background-position: 160% 0; }
+      55%,100% { background-position: -60% 0; }
+    }
+
+    /* respect reduced-motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .t, .t::before, .t::after { animation: none; }
+    }
+
     /* stack to a single column on narrow screens */
     @media (max-width: 700px) {
       body { overflow: auto; }
@@ -129,7 +230,7 @@
       <div class="card__cover">
         <img src="./open-space/cover.png" alt="" onerror="this.classList.add('hidden')">
       </div>
-      <div class="card__title">Open Space Day @ itenium</div>
+      <div class="card__title"><span class="t t--gradient">Open Space Day @ itenium</span></div>
     </a>
 
     <!-- 2 — More AI Sessions? -->
@@ -137,13 +238,13 @@
       <div class="card__cover">
         <img src="./more-ai-sessions/cover.jpg" alt="" onerror="this.classList.add('hidden')">
       </div>
-      <div class="card__title">More AI Sessions?</div>
+      <div class="card__title"><span class="t t--glitch" data-text="More AI Sessions?">More AI Sessions?</span></div>
     </a>
 
     <!-- 3 — Shovelware (CSS-only synthwave cover, no image) -->
     <a class="card" target="_blank" rel="noopener" href="./shovelware-synthwave/">
       <div class="card__cover"><div class="neon-grid"></div></div>
-      <div class="card__title">Where Is All the Shovelware?</div>
+      <div class="card__title"><span class="t t--neon">Where Is All the Shovelware?</span></div>
     </a>
 
     <!-- 4 — Bookclub Dossier -->
@@ -151,7 +252,7 @@
       <div class="card__cover">
         <img src="./bookclub-dossier/cover.png" alt="" onerror="this.classList.add('hidden')">
       </div>
-      <div class="card__title">Target Dossier — Next Read</div>
+      <div class="card__title"><span class="t t--shine" data-text="Target Dossier — Next Read">Target Dossier — Next Read</span></div>
     </a>
 
   </main>

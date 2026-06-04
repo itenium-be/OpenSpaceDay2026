@@ -18,6 +18,16 @@ class: dx
   --bg:#04110a; --panel:#07180f; --grn:#27f08a; --grn2:#0fdc7a; --dim:#1e7a4f;
   --ink:#bdf7d8; --amber:#ffb347; --line:#0f3b25; --red:#ff5470;
 }
+/* Header images live here so Vite rewrites the deploy base into url(); inline
+   style="" attributes are not processed by Vite, so reference these via var(). */
+:root{
+  --hdr-alignment:url(/hdr-alignment.jpg);
+  --hdr-chip-war:url(/hdr-chip-war.jpg);
+  --hdr-philosophy:url(/hdr-philosophy.jpg);
+  --hdr-kill-it:url(/hdr-kill-it.jpg);
+  --hdr-cointelligence:url(/hdr-cointelligence.jpg);
+  --hdr-snakeoil:url(/hdr-snakeoil.jpg);
+}
 .slidev-layout{
   background:
     radial-gradient(120% 90% at 50% 0%, #08361f 0%, var(--bg) 55%),
@@ -191,7 +201,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #01</span></div>
   <div class="dos">
-    <div class="top" style="--hdr:url(/hdr-alignment.jpg); --hdr-pos:center top; --hdr-grad:linear-gradient(90deg, rgba(4,17,10,.95) 0 30%, rgba(4,17,10,.45) 60%, rgba(4,17,10,.18) 100%)">
+    <div class="top" style="--hdr:var(--hdr-alignment); --hdr-pos:center top; --hdr-grad:linear-gradient(90deg, rgba(4,17,10,.95) 0 30%, rgba(4,17,10,.45) 60%, rgba(4,17,10,.18) 100%)">
       <div>
         <div class="case">AI / ETHICS · ACQUIRED 2020</div>
         <h1>The Alignment Problem</h1>
@@ -227,7 +237,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #02</span></div>
   <div class="dos">
-    <div class="top" style="--hdr:url(/hdr-chip-war.jpg)">
+    <div class="top" style="--hdr:var(--hdr-chip-war)">
       <div>
         <div class="case">HISTORY · ACQUIRED 2022</div>
         <h1>Chip War</h1>
@@ -263,7 +273,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #03</span></div>
   <div class="dos">
-    <div class="top" style="--hdr:url(/hdr-philosophy.jpg)">
+    <div class="top" style="--hdr:var(--hdr-philosophy)">
       <div>
         <div class="case">CRAFT · ACQUIRED 2018</div>
         <h1>A Philosophy of Software Design</h1>
@@ -299,7 +309,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #04</span></div>
   <div class="dos">
-    <div class="top" style="--hdr:url(/hdr-kill-it.jpg)">
+    <div class="top" style="--hdr:var(--hdr-kill-it)">
       <div>
         <div class="case">CRAFT · ACQUIRED 2021</div>
         <h1>Kill It with Fire</h1>
@@ -335,7 +345,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #05</span></div>
   <div class="dos">
-    <div class="top" style="--hdr:url(/hdr-cointelligence.jpg)">
+    <div class="top" style="--hdr:var(--hdr-cointelligence)">
       <div>
         <div class="case">AI / PRACTICE · ACQUIRED 2024</div>
         <h1>Co-Intelligence</h1>
@@ -371,7 +381,7 @@ class: dx
 <div class="wrap dx">
   <div class="bar"><span>// dossier // open</span><span class="g">CASE #06</span></div>
   <div class="dos">
-    <div class="top" style="--hdr:url(/hdr-snakeoil.jpg)">
+    <div class="top" style="--hdr:var(--hdr-snakeoil)">
       <div>
         <div class="case">AI / SKEPTIC · ACQUIRED 2024</div>
         <h1>AI Snake Oil</h1>
