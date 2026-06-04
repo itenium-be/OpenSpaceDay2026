@@ -1,1 +1,34 @@
-/* skin: sticky — filled in Task 4 */
+/* skin: sticky — Post-it notes pinned to a wall */
+.skin-sticky.slidev-layout { background: #f3ead6; }
+
+.skin-sticky :is(h1, h2) { font-family: 'Caveat', cursive; font-weight: 700; }
+.skin-sticky.os-cover h1 { font-size: 4.2rem; transform: rotate(-2deg); }
+
+.skin-sticky .os-grid { gap: 1.4rem 1.2rem; }
+.skin-sticky .os-card {
+  position: relative;
+  background: color-mix(in srgb, var(--os-cat) 18%, #fff);
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 4px 8px rgba(0,0,0,.18);
+  padding: 1.1rem .95rem .9rem;
+}
+.skin-sticky .os-card:nth-child(3n+1) { transform: rotate(-2deg); }
+.skin-sticky .os-card:nth-child(3n+2) { transform: rotate(1.5deg); }
+.skin-sticky .os-card:nth-child(3n)   { transform: rotate(-.5deg); }
+/* tape strip */
+.skin-sticky .os-card::before {
+  content: '';
+  position: absolute;
+  top: -.5rem; left: 50%;
+  width: 3.2rem; height: 1.1rem;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(255,255,255,.55);
+  box-shadow: 0 1px 2px rgba(0,0,0,.12);
+}
+.skin-sticky .os-card__title { font-weight: 700; color: #2a2a2a; }
+.skin-sticky .os-chip {
+  background: rgba(255,255,255,.6);
+  color: color-mix(in srgb, var(--os-cat) 80%, #222);
+}
+.skin-sticky .os-grid-head h2 { transform: rotate(-1.5deg); }
