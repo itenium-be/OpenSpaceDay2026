@@ -1,0 +1,68 @@
+:root {
+  --os-bg: #fbf7ef;
+  --os-ink: #1f2430;
+  --os-muted: #6b7280;
+  --os-debate: #e23b3b;
+  --os-friction: #f5a524;
+  --os-craft: #2f7de1;
+  --os-culture: #2faf6a;
+  --os-cat: var(--os-craft);
+}
+
+.slidev-layout {
+  background: var(--os-bg);
+  color: var(--os-ink);
+  padding: 2.2rem 2.6rem;
+  font-feature-settings: 'kern';
+}
+
+/* cover */
+.os-cover { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+.os-cover h1 { font-size: 3.4rem; line-height: 1.05; margin: 0; }
+.os-cover .os-sub { margin-top: 1rem; font-size: 1.3rem; color: var(--os-muted); }
+.os-cover .os-byline { margin-top: 2.4rem; font-size: .95rem; color: var(--os-muted); }
+
+/* intro (explainer) */
+.os-intro { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+.os-intro h2 { font-size: 2.4rem; margin: 0 0 1.2rem; }
+.os-intro :is(p, li) { font-size: 1.35rem; line-height: 1.5; }
+
+/* grid */
+.os-grid-head { display: flex; align-items: center; gap: .6rem; margin: 0 0 1.2rem; }
+.os-grid-head .os-icon { font-size: 2rem; }
+.os-grid-head h2 { font-size: 2rem; margin: 0; color: var(--os-cat); }
+.os-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1rem;
+  align-content: start;
+}
+.os-card {
+  background: #fff;
+  border: 1px solid #e6e0d4;
+  border-top: 4px solid var(--os-cat);
+  border-radius: 10px;
+  padding: .85rem .95rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.os-card__title { font-weight: 600; font-size: 1.02rem; line-height: 1.25; }
+.os-card__chips { margin-top: .55rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+.os-chip {
+  font-size: .72rem;
+  padding: .12rem .5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--os-cat) 16%, #fff);
+  color: color-mix(in srgb, var(--os-cat) 70%, #1f2430);
+  white-space: nowrap;
+}
+
+/* category accents — set --os-cat on the layout root */
+.os-cat-debate   { --os-cat: var(--os-debate); }
+.os-cat-friction { --os-cat: var(--os-friction); }
+.os-cat-craft    { --os-cat: var(--os-craft); }
+.os-cat-culture  { --os-cat: var(--os-culture); }
+
+/* end / CTA */
+.os-end { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; }
+.os-end h2 { font-size: 3rem; margin: 0; }
+.os-end p { font-size: 1.4rem; color: var(--os-muted); margin-top: 1rem; }
