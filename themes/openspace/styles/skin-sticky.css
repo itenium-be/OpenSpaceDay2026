@@ -48,11 +48,17 @@
   background-size: cover;
   background-position: center;
 }
-/* text-only slides get the watercolour frame; its clean centre keeps copy readable.
-   grids deliberately stay on plain cork so the 27 cards don't fight a backdrop. */
+/* text-only slides get the watercolour frame; its clean centre keeps copy readable. */
 .skin-sticky.os-intro,
 .skin-sticky.os-end {
   background-image: linear-gradient(rgba(252,251,247,.55), rgba(252,251,247,.55)), url('/motifs.png');
+  background-size: cover;
+  background-position: center;
+}
+/* grids: a real corkboard so the cards read as pinned to the board. A light scrim
+   keeps the highlighted section title legible over the warm, uneven cork. */
+.skin-sticky.os-grid-layout {
+  background-image: linear-gradient(rgba(255,251,242,.22), rgba(255,251,242,.22)), url('/wall.png');
   background-size: cover;
   background-position: center;
 }
