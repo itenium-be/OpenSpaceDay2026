@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Itenium Open Space Day</title>
+  <!-- Inline SVG favicon: HAL-style glowing red eye — no asset to ship, base-path independent -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%2307070a'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='9'%20fill='%23ff1f3d'%20opacity='.35'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='6'%20fill='%23ff1f3d'/%3E%3Ccircle%20cx='16'%20cy='16'%20r='2'%20fill='%2307070a'/%3E%3C/svg%3E">
   <style>
     :root {
       --bg:        #07070a;
@@ -94,16 +96,21 @@
     .card__title {
       position: absolute;
       left: 0; right: 0; bottom: 0;
-      padding: 1.4rem 1.6rem;
-      background: linear-gradient(transparent, rgba(0, 0, 0, .85));
+      padding: 1.5rem 1.6rem;
+      text-align: center;
+      /* solid translucent backdrop + blur so titles stay legible over any cover */
+      background: rgba(7, 7, 10, .68);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-top: 1px solid var(--line);
       font-family: 'Orbitron', 'Segoe UI', sans-serif;
       text-transform: uppercase;
       letter-spacing: .06em;
-      font-size: clamp(1rem, 2.2vw, 1.7rem);
+      font-size: clamp(1.3rem, 2.8vw, 2.3rem);
       font-weight: 700;
       color: var(--red);
-      text-shadow: 0 0 10px var(--glow);
-      line-height: 1.25;
+      text-shadow: 0 0 12px var(--glow);
+      line-height: 1.2;
     }
 
     /* stack to a single column on narrow screens */
@@ -118,7 +125,7 @@
   <main class="grid">
 
     <!-- 1 — Open Space Day (top-left) -->
-    <a class="card" href="./open-space/">
+    <a class="card" target="_blank" rel="noopener" href="./open-space/">
       <div class="card__cover">
         <img src="./open-space/cover.png" alt="" onerror="this.classList.add('hidden')">
       </div>
@@ -126,7 +133,7 @@
     </a>
 
     <!-- 2 — More AI Sessions? -->
-    <a class="card" href="./more-ai-sessions/">
+    <a class="card" target="_blank" rel="noopener" href="./more-ai-sessions/">
       <div class="card__cover">
         <img src="./more-ai-sessions/cover.jpg" alt="" onerror="this.classList.add('hidden')">
       </div>
@@ -134,13 +141,13 @@
     </a>
 
     <!-- 3 — Shovelware (CSS-only synthwave cover, no image) -->
-    <a class="card" href="./shovelware-synthwave/">
+    <a class="card" target="_blank" rel="noopener" href="./shovelware-synthwave/">
       <div class="card__cover"><div class="neon-grid"></div></div>
       <div class="card__title">Where Is All the Shovelware?</div>
     </a>
 
     <!-- 4 — Bookclub Dossier -->
-    <a class="card" href="./bookclub-dossier/">
+    <a class="card" target="_blank" rel="noopener" href="./bookclub-dossier/">
       <div class="card__cover">
         <img src="./bookclub-dossier/cover.png" alt="" onerror="this.classList.add('hidden')">
       </div>

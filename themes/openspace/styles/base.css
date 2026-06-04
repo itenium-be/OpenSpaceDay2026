@@ -27,17 +27,22 @@
 .os-intro h2 { font-size: 2.4rem; margin: 0 0 1.2rem; }
 .os-intro :is(p, li) { font-size: 1.35rem; line-height: 1.5; }
 
-/* grid */
-.os-grid-head { display: flex; align-items: center; gap: .6rem; margin: 0 0 1.2rem; }
-.os-grid-head .os-icon { font-size: 2rem; }
-.os-grid-head h2 { font-size: 2rem; margin: 0; color: var(--os-cat); }
+/* grid — fill the whole slide so the cards read as a covered wall, not a top strip */
+.os-grid-layout { display: flex; flex-direction: column; height: 100%; }
+.os-grid-head { display: flex; align-items: center; gap: .8rem; margin: 0 0 1.4rem; }
+.os-grid-head .os-icon { font-size: 2.8rem; line-height: 1; }
+.os-grid-head h2 { font-size: 2.8rem; margin: 0; color: var(--os-cat); }
 .os-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: 1rem;
-  align-content: start;
+  flex: 1;               /* take all height below the title */
+  grid-auto-rows: 1fr;   /* rows stretch equally to fill it — no empty band */
 }
 .os-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: #fff;
   border: 1px solid #e6e0d4;
   border-top: 4px solid var(--os-cat);

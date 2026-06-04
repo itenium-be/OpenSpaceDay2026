@@ -28,13 +28,18 @@ if (!existsSync(landingPage)) {
   process.exit(1);
 }
 
-// --base "./" makes all asset URLs relative (./assets/...) so the built deck
-// loads whether served from the domain root, a subpath, or file://.
-// An absolute base like "/<slug>/" would 404 from any non-root mount.
+// Each deck builds with an ABSOLUTE base matching where it's served, so Slidev's
+// history router and public asset/image URLs resolve on a subpath. A relative
+// "./" base breaks routing and any image referenced from an assets/ chunk.
+// BASE_PATH is the site root: "/OpenSpaceDay2026" on GitHub Pages (injected by
+// the deploy workflow), empty locally where `serve dist` hosts at the root.
+const basePath = (process.env.BASE_PATH || '').replace(/\/+$/, '');
+
 for (const slug of slugs) {
   const entry  = join(decksDir, slug, 'slides.md');
   const outDir = join(distDir, slug);
-  const cmd    = `bunx slidev build "${entry}" --out "${outDir}" --base "./"`;
+  const base   = `${basePath}/${slug}/`;
+  const cmd    = `bunx slidev build "${entry}" --out "${outDir}" --base "${base}"`;
 
   console.log(`\nBuilding ${slug} …`);
   try {

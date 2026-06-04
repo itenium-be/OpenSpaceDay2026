@@ -31,7 +31,13 @@
   background: rgba(255,255,255,.6);
   color: color-mix(in srgb, var(--os-cat) 80%, #222);
 }
-.skin-sticky .os-grid-head h2 { transform: rotate(-1.5deg); }
+/* section title as a marker-highlighted header on the wall */
+.skin-sticky .os-grid-head h2 {
+  transform: rotate(-1.5deg);
+  color: #2a2a2a;
+  padding: .04em .3em;
+  background: linear-gradient(transparent 52%, color-mix(in srgb, var(--os-cat) 55%, transparent) 52%);
+}
 
 /* --- Midjourney art backdrops (served from decks/open-space/public/) --- */
 /* cover: sticky-note wall photo; left-heavy cork scrim keeps the title legible */
