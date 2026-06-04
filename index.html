@@ -100,13 +100,6 @@
       outline: none;
     }
 
-    /* dimmed / disabled card */
-    .card--dim {
-      opacity: .38;
-      filter: grayscale(.5);
-      cursor: default;
-    }
-
     /* ── cover area ── */
     .card__cover {
       width: 100%;
@@ -205,19 +198,6 @@
       line-height: 1.55;
     }
 
-    /* "Coming soon" badge */
-    .card__badge {
-      display: inline-block;
-      margin-top: auto;
-      padding: .2rem .6rem;
-      border: 1px solid var(--line);
-      border-radius: 2px;
-      font-size: .68rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--dim);
-      align-self: flex-start;
-    }
   </style>
 </head>
 <body>
@@ -266,14 +246,17 @@
       </div>
     </a>
 
-    <!-- 4 — Coming soon: non-clickable, dimmed, no <a> -->
-    <div class="card card--dim">
-      <div class="card__cover" style="background:#0a0a10;"></div>
-      <div class="card__body">
-        <div class="card__title">???</div>
-        <span class="card__badge">Coming soon</span>
+    <!-- 4 — Open Space Day -->
+    <a class="card" href="./open-space/">
+      <div class="card__cover">
+        <img src="./open-space/cover.png" alt=""
+             onerror="this.classList.add('hidden')">
       </div>
-    </div>
+      <div class="card__body">
+        <div class="card__title">Open Space Day @ itenium</div>
+        <p class="card__desc">27 conversation starters to seed the marketplace.</p>
+      </div>
+    </a>
 
   </main>
 
