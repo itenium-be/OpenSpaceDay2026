@@ -5,9 +5,7 @@
     "dev": "slidev decks/more-ai-sessions/slides.md --open",
     "build": "slidev build decks/more-ai-sessions/slides.md",
     "export": "slidev export decks/more-ai-sessions/slides.md --format pdf",
-    "shovelware:cdrom": "slidev decks/shovelware-cdrom/slides.md --open",
-    "shovelware:steam": "slidev decks/shovelware-steam/slides.md --open",
-    "shovelware:synthwave": "slidev decks/shovelware-synthwave/slides.md --open"
+    "shovelware": "slidev decks/shovelware-synthwave/slides.md --open"
   },
   "dependencies": {
     "@slidev/cli": "^51.0.0"

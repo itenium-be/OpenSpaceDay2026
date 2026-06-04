@@ -15,16 +15,13 @@ Presenter mode: <http://localhost:3030/presenter>
 
 ## Decks
 
-| Deck                   | Command                        | Theme              |
-|------------------------|--------------------------------|--------------------|
-| More AI Sessions       | `bun run dev`                  | `theme/` (evil AI) |
-| Shovelware · CD-ROM    | `bun run shovelware:cdrom`     | `themes/cdrom`     |
-| Shovelware · Steam     | `bun run shovelware:steam`     | `themes/steam`     |
-| Shovelware · Synthwave | `bun run shovelware:synthwave` | `themes/synthwave` |
+| Deck             | Command              | Theme               |
+|------------------|----------------------|---------------------|
+| More AI Sessions | `bun run dev`        | `theme/` (evil AI)  |
+| Shovelware       | `bun run shovelware` | `themes/synthwave`  |
 
-The three **Shovelware** decks are the same lightning talk — *"Where Is All the
-Shovelware?"* — rendered in three candidate themes, so you can compare live and
-keep the winner. Story/facts brief: [docs/shovelware-brief.md](docs/shovelware-brief.md).
+**Shovelware** is the lightning talk *"Where Is All the Shovelware?"* — synthwave
+neon-grid theme. Story/facts brief: [docs/shovelware-brief.md](docs/shovelware-brief.md).
 
 More decks drop under `decks/<name>/slides.md` — point `slidev` at the deck's
 `slides.md` (or add a script to `package.json`).
