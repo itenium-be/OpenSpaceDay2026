@@ -26,8 +26,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
-      - run: bun run build-all
+      # Resolve the Pages base path (e.g. /OpenSpaceDay2026) before building so
+      # each deck gets the correct absolute --base for its router and assets.
       - uses: actions/configure-pages@v5
+        id: pages
+      - run: bun run build-all
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
