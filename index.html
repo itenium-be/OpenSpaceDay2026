@@ -112,6 +112,7 @@
     .card__title {
       position: absolute;
       left: 0; right: 0; bottom: 0;
+      z-index: 2;
       padding: 1.5rem 1.6rem;
       text-align: center;
       /* solid translucent backdrop + blur so titles stay legible over any cover */
@@ -209,6 +210,45 @@
       55%,100% { background-position: -60% 0; }
     }
 
+    /* fire / flame */
+    .t--fire {
+      background: linear-gradient(to top, #fff 0%, #ffd700 20%, #ff4500 50%, #cc0000 80%, #440000 100%);
+      background-size: 100% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      text-shadow: none;
+      filter: drop-shadow(0 2px 6px rgba(255, 69, 0, .7));
+      animation: t-fire 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes t-fire {
+      0%   { background-position: 0% 0%;  filter: drop-shadow(0 2px 6px rgba(255, 69, 0, .7)); }
+      100% { background-position: 0% 60%; filter: drop-shadow(0 4px 12px rgba(255, 200, 0, .8)); }
+    }
+
+    /* hue-rotate colour cycle */
+    .t--hue {
+      color: var(--red);
+      text-shadow: 0 0 12px var(--red), 0 0 24px var(--red);
+      animation: t-hue 5s linear infinite;
+    }
+    @keyframes t-hue { to { filter: hue-rotate(360deg); } }
+
+    /* matrix rain — canvas drips behind a green phosphor title */
+    .card__matrix {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: .28;
+      pointer-events: none;
+    }
+    .t--matrix {
+      color: #39ff14;
+      text-shadow: 0 0 8px #39ff14, 0 0 20px #39ff14;
+      font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+    }
+
     /* respect reduced-motion preferences */
     @media (prefers-reduced-motion: reduce) {
       .t, .t::before, .t::after { animation: none; }
@@ -238,13 +278,13 @@
       <div class="card__cover">
         <img src="./more-ai-sessions/cover.jpg" alt="" onerror="this.classList.add('hidden')">
       </div>
-      <div class="card__title"><span class="t t--glitch" data-text="More AI Sessions?">More AI Sessions?</span></div>
+      <div class="card__title"><span class="t t--fire">More AI Sessions?</span></div>
     </a>
 
     <!-- 3 — Shovelware (CSS-only synthwave cover, no image) -->
     <a class="card" target="_blank" rel="noopener" href="./shovelware-synthwave/">
       <div class="card__cover"><div class="neon-grid"></div></div>
-      <div class="card__title"><span class="t t--neon">Where Is All the Shovelware?</span></div>
+      <div class="card__title"><span class="t t--hue">Where Is All the Shovelware?</span></div>
     </a>
 
     <!-- 4 — Bookclub Dossier -->
@@ -252,10 +292,43 @@
       <div class="card__cover">
         <img src="./bookclub-dossier/cover.png" alt="" onerror="this.classList.add('hidden')">
       </div>
-      <div class="card__title"><span class="t t--shine" data-text="Target Dossier — Next Read">Target Dossier — Next Read</span></div>
+      <canvas class="card__matrix" id="matrix-dossier"></canvas>
+      <div class="card__title"><span class="t t--matrix">Target Dossier — Next Read</span></div>
     </a>
 
   </main>
+
+  <script>
+    // Matrix rain behind the dossier card title — sized to the card, off under reduced-motion.
+    (function () {
+      const canvas = document.getElementById('matrix-dossier');
+      if (!canvas || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const card = canvas.parentElement;
+      const ctx = canvas.getContext('2d');
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+      const fontSize = 14;
+      let cols, drops;
+      function reset() {
+        canvas.width = card.clientWidth;
+        canvas.height = card.clientHeight;
+        cols = Math.floor(canvas.width / fontSize);
+        drops = Array(cols).fill(1);
+      }
+      reset();
+      new ResizeObserver(reset).observe(card);
+      setInterval(() => {
+        ctx.fillStyle = 'rgba(0,0,0,.18)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#39ff14';
+        ctx.font = fontSize + 'px monospace';
+        drops.forEach((y, i) => {
+          ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fontSize, y * fontSize);
+          if (y * fontSize > canvas.height && Math.random() > .975) drops[i] = 0;
+          drops[i]++;
+        });
+      }, 50);
+    })();
+  </script>
 
 </body>
 </html>
