@@ -27,6 +27,20 @@
 .os-intro h2 { font-size: 2.4rem; margin: 0 0 1.2rem; }
 .os-intro :is(p, li) { font-size: 1.35rem; line-height: 1.5; }
 
+/* where — venue floor plans side by side, filling the slide below the title */
+.os-where { display: flex; flex-direction: column; height: 100%; }
+.os-where h2 { font-size: 2.4rem; margin: 0 0 1.2rem; text-transform: uppercase; }
+.os-floors { display: flex; gap: 1.4rem; flex: 1; min-height: 0; }
+.os-floors img {
+  flex: 1;
+  min-width: 0;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #e6e0d4;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+
 /* grid — fill the whole slide so the cards read as a covered wall, not a top strip */
 .os-grid-layout { display: flex; flex-direction: column; height: 100%; }
 .os-grid-head { display: flex; align-items: center; gap: .8rem; margin: 0 0 1.4rem; }

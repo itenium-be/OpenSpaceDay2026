@@ -95,3 +95,16 @@ layout: end
 ## Your turn.
 
 <p>Grab a marker. Pin a card. Propose a session.</p>
+
+
+---
+layout: intro
+---
+
+<div class="os-where">
+  <h2>Where</h2>
+  <div class="os-floors">
+    <img src="/Officenter.gelijkvloers.png" alt="Gelijkvloers" />
+    <img src="/Officenter.1eVerdieping.png" alt="1e verdieping" />
+  </div>
+</div>
