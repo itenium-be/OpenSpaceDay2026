@@ -128,7 +128,7 @@ layout: intro
     <div class="os-floor">
       <div class="os-floor__pic">
         <img src="/Officenter.1eVerdieping-grayscale.png" alt="1e verdieping" />
-        <div class="os-room" style="--d:.2s; left:84.74%; top:70.01%; width:8.39%; height:7.71%">
+        <div class="os-room" style="--d:.2s; left:calc(84.74% + 20px); top:70.01%; width:calc(8.39% - 20px); height:7.71%">
           <span class="os-room__tag" style="left:50%; top:0; transform:translate(-50%,calc(-118% - 10px))">Brown room<b>8</b></span>
         </div>
         <div class="os-room" style="--d:.5s; left:84.74%; top:77.79%; width:8.39%; height:14.78%">
