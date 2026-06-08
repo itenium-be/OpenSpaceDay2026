@@ -104,7 +104,37 @@ layout: intro
 <div class="os-where">
   <h2>Where</h2>
   <div class="os-floors">
-    <img src="/Officenter.gelijkvloers.png" alt="Gelijkvloers" />
-    <img src="/Officenter.1eVerdieping.png" alt="1e verdieping" />
+    <div class="os-floor">
+      <div class="os-floor__pic">
+        <img src="/Officenter.gelijkvloers-grayscale.png" alt="Gelijkvloers" />
+        <div class="os-room" style="--d:.2s; left:54.11%; top:18.83%; width:7.92%; height:10.32%">
+          <span class="os-room__tag" style="left:50%; top:0; transform:translate(-50%,calc(-118% - 10px))">Mechelen room<b>18</b></span>
+        </div>
+        <div class="os-room" style="--d:.5s; left:74.22%; top:28.77%; width:4.45%; height:7.4%">
+          <span class="os-room__tag" style="left:50%; top:100%; transform:translate(-50%,calc(18% + 10px))">Board room<b>8</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+layout: intro
+---
+
+<div class="os-where">
+  <h2>Where</h2>
+  <div class="os-floors">
+    <div class="os-floor">
+      <div class="os-floor__pic">
+        <img src="/Officenter.1eVerdieping-grayscale.png" alt="1e verdieping" />
+        <div class="os-room" style="--d:.2s; left:84.74%; top:70.01%; width:8.39%; height:7.71%">
+          <span class="os-room__tag" style="left:50%; top:0; transform:translate(-50%,calc(-118% - 10px))">Brown room<b>8</b></span>
+        </div>
+        <div class="os-room" style="--d:.5s; left:84.74%; top:77.79%; width:8.39%; height:14.78%">
+          <span class="os-room__tag" style="left:50%; top:50%; transform:translate(calc(-50% - 100px),-50%)">White room<b>8</b></span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

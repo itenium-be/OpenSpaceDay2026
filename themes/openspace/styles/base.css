@@ -30,15 +30,71 @@
 /* where — venue floor plans side by side, filling the slide below the title */
 .os-where { display: flex; flex-direction: column; height: 100%; }
 .os-where h2 { font-size: 2.4rem; margin: 0 0 1.2rem; text-transform: uppercase; }
-.os-floors { display: flex; gap: 1.4rem; flex: 1; min-height: 0; }
-.os-floors img {
-  flex: 1;
-  min-width: 0;
-  object-fit: contain;
+.os-floors { display: flex; flex-direction: column; gap: 1rem; flex: 1; min-height: 0; --hl: #ff2d87; }
+.os-floor { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; }
+/* shrink-wrap the image so room markers can be positioned as % of the picture itself */
+.os-floor__pic { position: relative; line-height: 0; }
+.os-floor__pic img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   border-radius: 10px;
   border: 1px solid #e6e0d4;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+
+/* animated room highlights */
+.os-room {
+  position: absolute;
+  border: 3px solid var(--hl);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--hl) 20%, transparent);
+  transform-origin: center;
+  animation:
+    os-room-in .55s cubic-bezier(.2,.9,.3,1.5) both,
+    os-room-glow 1.9s ease-in-out infinite;
+  animation-delay: var(--d, 0s), calc(var(--d, 0s) + .55s);
+}
+.os-room__tag {
+  position: absolute;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  background: var(--os-ink);
+  color: #fff;
+  font-weight: 700;
+  font-size: .68rem;
+  line-height: 1.2;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.35);
+  animation: os-tag-in .45s ease both;
+  animation-delay: calc(var(--d, 0s) + .25s);
+}
+.os-room__tag b {
+  background: var(--hl);
+  color: #fff;
+  border-radius: 999px;
+  min-width: 1.25em;
+  padding: 0 .25em;
+  text-align: center;
+}
+
+@keyframes os-room-in {
+  0%   { opacity: 0; transform: scale(.35); }
+  60%  { opacity: 1; transform: scale(1.12); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes os-room-glow {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--hl) 55%, transparent), 0 0 12px 2px color-mix(in srgb, var(--hl) 55%, transparent); }
+  50%      { box-shadow: 0 0 0 9px color-mix(in srgb, var(--hl) 0%, transparent), 0 0 22px 6px color-mix(in srgb, var(--hl) 85%, transparent); }
+}
+@keyframes os-tag-in {
+  0% { opacity: 0; }
 }
 
 /* grid — fill the whole slide so the cards read as a covered wall, not a top strip */
