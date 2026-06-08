@@ -58,6 +58,26 @@
     os-room-glow 1.9s ease-in-out infinite;
   animation-delay: var(--d, 0s), calc(var(--d, 0s) + .55s);
 }
+/* sweeping light streak — clipped to the box so it never spills onto the tag */
+.os-room::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+    transparent 38%,
+    color-mix(in srgb, var(--hl) 35%, #fff) 47%,
+    rgba(255, 255, 255, .85) 50%,
+    color-mix(in srgb, var(--hl) 35%, #fff) 53%,
+    transparent 62%);
+  background-size: 260% 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 0;
+  clip-path: inset(0 round 6px);
+  animation: os-shine 2.4s ease-in-out infinite alternate;
+  animation-delay: calc(var(--d, 0s) + .7s);
+}
 .os-room__tag {
   position: absolute;
   white-space: nowrap;
@@ -90,12 +110,27 @@
   100% { opacity: 1; transform: scale(1); }
 }
 @keyframes os-room-glow {
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--hl) 55%, transparent), 0 0 12px 2px color-mix(in srgb, var(--hl) 55%, transparent); }
-  50%      { box-shadow: 0 0 0 9px color-mix(in srgb, var(--hl) 0%, transparent), 0 0 22px 6px color-mix(in srgb, var(--hl) 85%, transparent); }
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--hl) 60%, transparent),
+      0 0 14px 2px color-mix(in srgb, var(--hl) 55%, transparent);
+    border-color: var(--hl);
+  }
+  50% {
+    box-shadow:
+      0 0 0 11px color-mix(in srgb, var(--hl) 0%, transparent),
+      0 0 30px 9px color-mix(in srgb, var(--hl) 95%, transparent);
+    border-color: color-mix(in srgb, var(--hl) 60%, #fff);
+  }
+}
+@keyframes os-shine {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 100% 0; }
 }
 @keyframes os-tag-in {
   0% { opacity: 0; }
 }
+.os-room__tag b { box-shadow: 0 0 8px color-mix(in srgb, var(--hl) 70%, transparent); }
 
 /* grid — fill the whole slide so the cards read as a covered wall, not a top strip */
 .os-grid-layout { display: flex; flex-direction: column; height: 100%; }
